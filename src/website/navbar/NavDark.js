@@ -21,6 +21,7 @@ function NavLinks(props) {
     );
     return links;
 }
+
 function NavigationBar() {
     return <>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark py-3 justify-content-between" >
