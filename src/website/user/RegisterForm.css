@@ -8,3 +8,6 @@
 .shadowbtn{
     box-shadow: 2px 2px 5px #959595 !important;
 }
+.checked{
+    color: gold;
+}
