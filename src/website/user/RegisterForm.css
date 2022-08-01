@@ -1,6 +1,9 @@
-.card{
+/* .card{
     box-shadow: 5px 5px 5px #959595 !important;
     border-radius: 30px;
+} */
+.card form input{
+    border: 1px solid black;
 }
 .shadowbtn{
     box-shadow: 2px 2px 5px #959595 !important;
