@@ -12,7 +12,7 @@ function FreshWebsite() {
     return (
         <>
             <NavExtraDark />
-            <DonatePage/>
+            <Register/>
             
         </>
     )

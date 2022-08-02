@@ -23,33 +23,33 @@ function RescueForm() {
                             <div className="row justify-content-center">
                                 <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
-                                    <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Rescue</p>
+                                    <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4 text-secondary">Rescue</p>
 
                                     <form className="mx-1 mx-md-4">
 
                                         <div className="d-flex flex-row align-items-center mb-4">
-                                            <i className="fa mr-2 fa-user fa-lg me-3 fa-fw"></i>
+                                            <i className="fa mr-2 fa-user fa-lg me-3 fa-fw text-secondary"></i>
                                             <div className="form-outline flex-fill mb-0">
                                                 <input type="text" id="form3Example1c" placeholder="Your Name" className="form-control" />
                                             </div>
                                         </div>
 
                                         <div className="d-flex flex-row align-items-center mb-4">
-                                            <i className="fa mr-2 fa-phone fa-lg me-3 fa-fw"></i>
+                                            <i className="fa mr-2 fa-phone fa-lg me-3 fa-fw text-secondary"></i>
                                             <div className="form-outline flex-fill mb-0">
                                                 <input type="tel" id="form3Example3c" className="form-control" placeholder="Your Phone" />                                            </div>
                                         </div>
 
                                         <div className="d-flex flex-row align-items-center mb-4">
-                                            <i className="fa mr-2 fa-paw fa-lg me-3 fa-fw"></i>
+                                            <i className="fa mr-2 fa-paw fa-lg me-3 fa-fw text-secondary"></i>
                                             <div className="form-outline flex-fill mb-0">
                                                 <input type="text" id="form3Example4c" className="form-control" placeholder="Breed" />
                                             </div>
                                         </div>
 
                                         <div className="d-flex flex-row align-items-center mb-4">
-                                            <i className="fa mr-2 fa-address-card fa-lg me-3 fa-fw"></i>
-                                            Address Details:
+                                            <i className="fa mr-2 fa-address-card fa-lg me-3 fa-fw text-secondary"></i>
+                                            <div className="">Address Details:</div>
                                         </div>
                                         <div className="d-flex flex-row align-items-center mb-4">
 
@@ -74,7 +74,7 @@ function RescueForm() {
 
 
                                         <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                            <button type="button" className="btn btn-primary btn-lg shadowbtn">REGISTER</button>
+                                            <button type="button" className="btn btn-primary btn-lg shadow text-white">RESCUE</button>
                                         </div>
 
                                     </form>
@@ -86,7 +86,7 @@ function RescueForm() {
                                             className="img-fluid" alt="Sample" />
                                         <div className="px-auto">
                                             <input type={"file"} className="d-none" onChange={handleChange} ref={inputRef} />
-                                            <button type="button" className="btn btn-primary mx-auto d-block btn-lg shadowbtn" onClick={clickInput}>Upload Images</button>
+                                            <button type="button" className="btn btn-primary mx-auto d-block shadow text-white" onClick={clickInput}>Upload Images</button>
                                         </div>
                                     </div>
                                 </div>

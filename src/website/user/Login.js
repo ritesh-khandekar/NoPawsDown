@@ -8,25 +8,25 @@ function Login() {
                             <div className="row justify-content-center">
                                 <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
-                                    <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Login</p>
+                                    <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4 text-primary">Login</p>
 
                                     <form className="mx-1 mx-md-4">
 
                                         <div className="d-flex flex-row align-items-center mb-4">
-                                            <i className="fa mr-2 fa-envelope fa-lg me-3 fa-fw"></i>
+                                            <i className="fa mr-2 fa-envelope fa-lg me-3 fa-fw text-secondary"></i>
                                             <div className="form-outline flex-fill mb-0">
-                                                <input type="email" id="form3Example3c" className="form-control" placeholder="Your Email"/>                                            </div>
+                                                <input type="email" id="form3Example3c" className="form-control border border-primary" placeholder="Your Email"/>                                            </div>
                                         </div>
 
                                         <div className="d-flex flex-row align-items-center mb-4">
-                                            <i className="fa mr-2 fa-lock fa-lg me-3 fa-fw"></i>
+                                            <i className="fa mr-2 fa-lock fa-lg me-3 fa-fw text-secondary"></i>
                                             <div className="form-outline flex-fill mb-0">
-                                                <input type="password" id="form3Example4c" className="form-control" placeholder="Password"/>
+                                                <input type="password" id="form3Example4c" className="form-control border border-primary" placeholder="Password"/>
                                             </div>
                                         </div>
 
                                         <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                            <button type="button" className="btn btn-primary btn-lg shadowbtn">Login</button>
+                                            <button type="button" className="btn btn-primary btn-lg shadow text-white">LOGIN</button>
                                         </div>
 
                                     </form>
