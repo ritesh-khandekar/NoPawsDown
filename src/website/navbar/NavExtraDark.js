@@ -1,5 +1,6 @@
 import WEBSITE_NAME from "../tools/WebsiteName";
 import icon from "../images/icon_landscape.png";
+import "bootstrap/dist/js/bootstrap"
 import "./Nav.css"
 
 const navData = [

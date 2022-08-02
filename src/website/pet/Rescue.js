@@ -14,7 +14,7 @@ function RescueForm() {
     const clickInput = () => {
         inputRef.current.click();
     }
-    return <section className="vh-100" >
+    return <section className="vh-100 mt-4" >
         <div className="container h-100">
             <div className="row d-flex justify-content-center align-items-center h-100">
                 <div className="col-lg-12 col-xl-11">
@@ -30,20 +30,20 @@ function RescueForm() {
                                         <div className="d-flex flex-row align-items-center mb-4">
                                             <i className="fa mr-2 fa-user fa-lg me-3 fa-fw text-secondary"></i>
                                             <div className="form-outline flex-fill mb-0">
-                                                <input type="text" id="form3Example1c" placeholder="Your Name" className="form-control" />
+                                                <input type="text" id="form3Example1c" placeholder="Your Name" className="form-control border border-secondary" />
                                             </div>
                                         </div>
 
                                         <div className="d-flex flex-row align-items-center mb-4">
                                             <i className="fa mr-2 fa-phone fa-lg me-3 fa-fw text-secondary"></i>
                                             <div className="form-outline flex-fill mb-0">
-                                                <input type="tel" id="form3Example3c" className="form-control" placeholder="Your Phone" />                                            </div>
+                                                <input type="tel" id="form3Example3c" className="form-control border border-secondary" placeholder="Your Phone" />                                            </div>
                                         </div>
 
                                         <div className="d-flex flex-row align-items-center mb-4">
                                             <i className="fa mr-2 fa-paw fa-lg me-3 fa-fw text-secondary"></i>
                                             <div className="form-outline flex-fill mb-0">
-                                                <input type="text" id="form3Example4c" className="form-control" placeholder="Breed" />
+                                                <input type="text" id="form3Example4c" className="form-control border border-secondary" placeholder="Breed" />
                                             </div>
                                         </div>
 
@@ -54,20 +54,20 @@ function RescueForm() {
                                         <div className="d-flex flex-row align-items-center mb-4">
 
                                             <div className="row form-row">
-                                                <div className="col-sm-6">
-                                                    <input type="text" name="area" placeholder="Enter Area" className="form-control" required="" />
+                                                <div className="col-sm-6 my-1">
+                                                    <input type="text" name="area" placeholder="Enter Area" className="form-control border border-secondary" required="" />
                                                 </div>
-                                                <div className="col-sm-6">
-                                                    <input type="text" name="city" placeholder="Enter City" className="form-control" required="" />
+                                                <div className="col-sm-6 my-1">
+                                                    <input type="text" name="city" placeholder="Enter City" className="form-control border border-secondary" required="" />
                                                 </div>
                                             </div>
                                         </div>
                                         <div className="d-flex flex-row align-items-center mb-4">                                            <div className="row form-row">
-                                            <div className="col-sm-6">
-                                                <input type="text" name="state" placeholder="Enter State" className="form-control" required="" />
+                                            <div className="col-sm-6 my-1">
+                                                <input type="text" name="state" placeholder="Enter State" className="form-control border border-secondary" required="" />
                                             </div>
-                                            <div className="col-sm-6">
-                                                <input type="text" name="postalcode" placeholder="Postal Code" className="form-control" required="" />
+                                            <div className="col-sm-6 my-1">
+                                                <input type="text" name="postalcode" placeholder="Postal Code" className="form-control border border-secondary" required="" />
                                             </div>
                                         </div>
                                         </div>

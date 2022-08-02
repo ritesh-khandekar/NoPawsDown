@@ -1,5 +1,5 @@
 import React from "react";
-import icon from "../images/favicon.ico"
+import icon from "../images/favicon.png"
 import WEBSITE_NAME from "../tools/WebsiteName";
 
 const navData = [
