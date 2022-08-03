@@ -6,9 +6,9 @@ function StarRating(props) {
     let stars = []
     for (let i = 1; i <= 5; i++) {
         if (i <= val) {
-            stars.push(<span class="fa fa-star checked"></span>);
+            stars.push(<span className="fa fa-star checked"></span>);
         } else {
-            stars.push(<span class="fa fa-star"></span>);
+            stars.push(<span className="fa fa-star"></span>);
         }
     }
     return stars;
@@ -20,7 +20,7 @@ function DonatePage() {
         { "name": "Apollo Charitable Foundation", "address": "Rupakuchi, Assam 781314", "reviews": 12, "stars": 4.8, "phone": "9769806731", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Logo_Apollo_Charitable_Foundation_%28N.G.O%29.jpg/450px-Logo_Apollo_Charitable_Foundation_%28N.G.O%29.jpg" },
     ]
     const cards = ngoData.map((data, i) => {
-        return <div className="card m-1 shadow" style={{ width: 18 + "rem" }} key={data.name + "i"}>
+        return <div key={"ngo"+i} className="card m-1 shadow" style={{ width: 18 + "rem" }}>
             <img src={data.image} height="250px" className="card-img-top" alt={"Image of " + data.name} />
             <div className="card-body">
                 <h5 className="card-title text-secondary">{data.name}</h5>

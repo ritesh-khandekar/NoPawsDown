@@ -1,19 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from './navbar/Header';
-import NavigationBar from "./navbar/NavDark";
 import NavExtraDark from './navbar/NavExtraDark';
-import SideTabs from './navbar/SideTabs';
-import DonatePage from './pet/Donate';
-import RescueForm from './pet/Rescue';
-import Padding from './tools/Padding';
-import Login from './user/Login';
-import Register from './user/Register';
+
 function FreshWebsite() {
+    let [currentElement, setElement] = useState(<Header/>);
+    
     return (
         <>
-            <NavExtraDark />
-            <Header/>
-            
+            <NavExtraDark attachFn={setElement}/>
+            {currentElement}
         </>
     )
 }
