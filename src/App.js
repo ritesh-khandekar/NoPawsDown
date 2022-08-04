@@ -1,8 +1,26 @@
 import React from 'react';
 import './App.css';
-import FreshWebsite from './website/FreshWebsite';
+import { Routes, Route, Link } from "react-router-dom";
 
-function App(){
-  return <FreshWebsite/>;
+import NavbarLight from './website/navbar/NavbarLight';
+import Header from './website/navbar/Header';
+
+import Login from "./website/user/Login";
+import DonatePage from './website/pet/Donate';
+import RescueForm from './website/pet/Rescue';
+import Register from './website/user/Register';
+
+function App() {
+  return <>
+    <NavbarLight />
+    <Routes>
+      <Route path="/" element={<Header />}  />
+      <Route path="login" element={<Login />}  />
+      <Route path="donate" element={<DonatePage />}  />
+      <Route path="rescue" element={<RescueForm />}  />
+      <Route path="register" element={<Register />}  />
+    </Routes>
+    </>
+
 }
 export default App;
