@@ -1,4 +1,4 @@
-import "../user/RegisterForm.css"
+import "../user/effects.css"
 
 function StarRating(props) {
     const rating = props.rating;

@@ -11,3 +11,8 @@
 .checked{
     color: gold;
 }
+.bg-glass{
+    backdrop-filter: blur(20px) !important;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0)) !important;
+    border-radius: 20px !important;
+}
