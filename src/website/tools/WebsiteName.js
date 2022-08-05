@@ -1,2 +1,6 @@
 const WEBSITE_NAME = "Pet Rescue";
-export default WEBSITE_NAME;
+const API_URL = "http://localhost:4000/"
+export default {
+    "name": WEBSITE_NAME,
+    "api-url": API_URL
+};
