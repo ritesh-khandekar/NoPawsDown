@@ -1,4 +1,3 @@
-import WEBSITE_NAME from "../tools/WebsiteName";
 import icon from "../images/landscape_icon_npd.png";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/js/bootstrap";

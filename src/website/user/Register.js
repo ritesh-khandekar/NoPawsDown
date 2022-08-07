@@ -1,19 +1,19 @@
 import { useRef, useState } from "react";
-import webjson from "../tools/WebsiteName.js"
+import webjson from "../tools/SiteConsts.js"
 import "./effects.css"
 
-const API_URL = webjson["api-url"];
+const API_URL = webjson["API_URL"];
 
 function Register() {
-    const [user,setUser] = useState({});
+    const [user, setUser] = useState({});
     const form = useRef(null);
 
-    function handleSubmit(e){
+    function handleSubmit(e) {
         e.preventDefault();
         const data = new FormData(form.current);
-        fetch(API_URL+"user/register",{"method":"POST",body: data}).
-        then(res => res.json())
-        .then(json => console.log(json));
+        fetch(API_URL + "user/register", { "method": "POST", body: data }).
+            then(res => res.json())
+            .then(json => console.log(json));
     }
 
     return <section className="py-4 bg-gradient" >
@@ -39,13 +39,13 @@ function Register() {
                                         <div className="d-flex flex-row align-items-center mb-4">
                                             <i className="fa mr-2 fa-envelope fa-lg me-3 fa-fw shadow text-white"></i>
                                             <div className="form-outline flex-fill mb-0">
-                                                <input type="email" id="form3Example3c" name="user[email]" defaultValue={user.email} className="form-control text-primary border border-primary shadow" placeholder="Your Email"/>                                            </div>
+                                                <input type="email" id="form3Example3c" name="user[email]" defaultValue={user.email} className="form-control text-primary border border-primary shadow" placeholder="Your Email" />                                            </div>
                                         </div>
 
                                         <div className="d-flex flex-row align-items-center mb-4">
                                             <i className="fa mr-2 fa-lock fa-lg me-3 fa-fw shadow text-white"></i>
                                             <div className="form-outline flex-fill mb-0">
-                                                <input type="password" id="form3Example4c" name="user[password]" defaultValue={user.password} className="form-control text-primary border border-primary shadow" placeholder="Password"/>
+                                                <input type="password" id="form3Example4c" name="user[password]" defaultValue={user.password} className="form-control text-primary border border-primary shadow" placeholder="Password" />
                                             </div>
                                         </div>
 
@@ -64,7 +64,7 @@ function Register() {
                                         </div>
 
                                         <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                            <input type="submit" className="btn btn-primary btn-lg shadow text-white border border-light border-opacity-50" value={"REGISTER"}/>
+                                            <input type="submit" className="btn btn-primary btn-lg shadow text-white border border-light border-opacity-50" value={"REGISTER"} />
                                         </div>
 
                                     </form>
