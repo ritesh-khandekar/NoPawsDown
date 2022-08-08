@@ -1,7 +1,5 @@
 import icon from "../images/landscape_icon_npd.png";
 import { Link } from "react-router-dom";
-import "bootstrap/dist/js/bootstrap";
-import "./Nav.css";
 
 const navData = [
     "Rescue",
@@ -22,7 +20,7 @@ function NavLinks(props) {
     return links;
 }
 
-function NavbarLight(props) {
+function NavbarLight() {
     return <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
         <div className="container">
             <Link to={"/"} className="navbar-brand" role={"button"}><img src={icon} height="60" /></Link>

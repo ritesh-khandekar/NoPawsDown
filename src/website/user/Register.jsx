@@ -5,7 +5,7 @@ import "./effects.css"
 const API_URL = webjson["API_URL"];
 
 function Register() {
-    const [user, setUser] = useState({});
+    const [user] = useState({});
     const form = useRef(null);
 
     function handleSubmit(e) {

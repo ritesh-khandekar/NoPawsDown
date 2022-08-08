@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import NavbarLight from './website/navbar/NavbarLight';
 import Header from './website/navbar/Header';
@@ -9,6 +9,7 @@ import Login from "./website/user/Login";
 import DonatePage from './website/pet/Donate';
 import RescueForm from './website/pet/Rescue';
 import Register from './website/user/Register';
+import NGODetails from './website/pet/NGODetails';
 
 function App() {
   return <>
