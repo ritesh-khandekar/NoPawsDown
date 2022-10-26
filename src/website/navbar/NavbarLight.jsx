@@ -1,5 +1,10 @@
 import icon from "../images/landscape_icon_npd.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import decode from 'jwt-decode'
+import { setCurrentUser } from "../actions/currentUser";
+import { useEffect } from "react";
+
 // import 'bootstrap';
 // import 'bootstrap/dist/css/bootstrap.css';
 // import 'bootstrap/dist/js/bootstrap.js';
@@ -26,10 +31,28 @@ function NavLinks(props) {
 }
 
 function NavbarLight() {
-    // const User = {
-    //     firstname: "Ritesh"
-    // };
-    const User = null;
+
+    const dispatch = useDispatch()
+    var User = useSelector((state) => (state.currentUserReducer))
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        dispatch({ type: 'LOGOUT'});
+        navigate('/')
+        dispatch(setCurrentUser(null))
+    }
+    
+    useEffect(() => {
+        const token = User?.token 
+        if(token){
+            const decodedToken = decode(token)
+            if(decodedToken.exp * 1000 < new Date().getTime()){
+                handleLogout()
+            }
+        }
+        dispatch(setCurrentUser( JSON.parse(localStorage.getItem('Profile'))))
+    },[User?.token, dispatch])
+
     return <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
         <div className="container">
             <Link to={"/"} className="navbar-brand" role={"button"}><img src={icon} height="60" /></Link>
@@ -57,7 +80,7 @@ function NavbarLight() {
                             </ul>
                         </li> */}
                             <li className="nav-item py-2">
-                                <Link to={"user"} className="nav-link bg-primary px-3 rounded-5 mx-1 text-white">{User.firstname.charAt(0)}</Link>
+                                <Link to={"user"} className="nav-link bg-primary px-3 rounded-5 mx-1 text-white">{User.result.name.charAt(0).toUpperCase()}</Link>
                             </li>
                         </>
                         :

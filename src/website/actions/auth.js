@@ -9,7 +9,7 @@ export const signup = (authData, navigate) => async (dispatch) => {
         dispatch(setCurrentUser( JSON.parse(localStorage.getItem('Profile')) ))
         navigate('/')
     } catch (error) {
-        console.log(error)
+        alert("Invalid credentials!")
     }
 }
 
@@ -20,6 +20,6 @@ export const login = (authData, navigate) => async (dispatch) => {
         dispatch(setCurrentUser( JSON.parse(localStorage.getItem('Profile')) ))
         navigate('/')
     } catch (error) {
-        console.log(error)
+        alert("Invalid credentials!")
     }
 }

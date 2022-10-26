@@ -13,6 +13,8 @@ import NGODetails from './website/pet/NGODetails';
 import About from './website/components/About';
 import Adopt from './website/pet/Adopt';
 import SponsorPet from './website/pet/SponsorPet';
+import User from './website/components/User';
+import PetDetails from './website/pet/PetDetails';
 
 function App() {
   return <>
@@ -21,6 +23,8 @@ function App() {
       <Route path="/" element={<Home />}  />
       <Route path="login" element={<Login />}  />
       <Route path="adopt" element={<Adopt />}  />
+      <Route path="adopt/:id" element={<PetDetails />}  />
+      <Route path="user" element={<User />}  />
       <Route path="sponsor" element={<SponsorPet />}  />
       <Route path="about" element={<About />}  />
       <Route path="donate" element={<DonatePage />}  />

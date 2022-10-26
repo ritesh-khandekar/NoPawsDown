@@ -11,10 +11,10 @@ function Header() {
                         <div className="text-center my-5">
                             <h1 className="display-5 fw-bolder text-white mb-2">Create <b className="text-white">Happiness</b>, Save <b className="text-white">Lives</b></h1>
                             <div className="d-grid gap-3 d-sm-flex justify-content-sm-center mb-5">
-                                <Link to={"donate"} className="btn shadow-lg btn-primary border border-white btn-lg px-4 me-sm-3 m-1 text-white" >Donate</Link>
-                                <Link to={"adopt"} className="btn shadow-lg btn-outline-primary btn-lg px-4 m-1 bg-white" >Adopt</Link>
+                                <Link to={"donate"} className="btn shadow-lg btn-primary border border-white btn-lg rounded-5 px-4 me-sm-3 m-1 text-white" >Donate</Link>
+                                <Link to={"adopt"} className="btn shadow-lg btn-primary btn-lg px-4 m-1 text-white rounded-5 border-white" >Adopt</Link>
                             </div>
-                            <Link to={"sponsor"} className="btn shadow-lg btn-outline-primary bg-white border border-white btn px-5 mt-5" >Sponsor a pet Today</Link>
+                            <Link to={"sponsor"} className="btn shadow-lg btn-secondary border rounded-5 border-white btn px-5 text-white mt-5" >Give a Pet for Adoption</Link>
                         </div>
                     </div>
                 </div>
