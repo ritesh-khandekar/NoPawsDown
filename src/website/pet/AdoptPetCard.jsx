@@ -3,32 +3,26 @@ import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
 
-const AdoptPetCard = ({ petId, petGender, petImgSrc, petName, petAge, petBreed, petMessage, petType }) => {
-    const dispatch = useDispatch()
+const AdoptPetCard = ({ petId, petGender, petWeight, cropData, PetName, petAge, petBreed, petMessage, petType }) => {
     const navigate = useNavigate()
-    let pet_img;
-    try{
-        pet_img = require(`../uploads/${petImgSrc}`)
-    }catch(e){
-        pet_img = require(`../uploads/dugo.png`)
-    }
-    const linkClick = e =>{
+
+    const linkClick = e => {
         e.preventDefault();
-        localStorage.setItem("selectedPet",JSON.stringify({ petId, petGender, petImgSrc, petName, petAge, petBreed, petMessage, petType, navigator }));
+        localStorage.setItem("selectedPet", JSON.stringify({ petId, petGender, cropData, PetName, petAge, petBreed, petMessage, petType, navigator }));
         navigate(petId)
     }
     return (
         <div className='card mb-4 flex-grow-0' style={{ width: "17rem" }}>
-            <img alt='' src={pet_img} className="card-img-top" height={"300px"} />
+            <img alt='' src={cropData} className="card-img-top" />
             <div className="card-body">
                 <div className="card-title text-primary">
-                    <h4>{petName}</h4>
+                    <h4>{PetName}</h4>
                 </div>
                 <div className="card-text py-2">
                     Pet Type: <b>{petType}</b> <br />
-                    {/* Pet Breed: <b>{petBreed}</b> <br /> */}
                     Gender: <b>{petGender}</b> <br />
-                    Age: <b>{petAge}</b>
+                    Age: <b>{petAge}</b> <br />
+                    Weight: <b>{petWeight}</b>
                 </div>
                 <div className="card-text">
                     {petMessage}

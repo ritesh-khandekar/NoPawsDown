@@ -15,7 +15,7 @@ function Features() {
         <div class="row g-4 py-5 row-cols-1">
           <div class="col d-flex align-items-start">
             <div class="icon-square text-dark p-4 flex-shrink-0 me-3">
-              <img src={search} style={{width: "40px"}} alt="Search for Pet" />
+              <img src={search} style={{ width: "40px" }} alt="Search for Pet" />
             </div>
             <div>
               <h2>Search Pet</h2>
@@ -24,7 +24,7 @@ function Features() {
           </div>
           <div class="col d-flex align-items-start">
             <div class="icon-square text-dark p-4 flex-shrink-0 me-3">
-              <img src={meet} style={{width: "40px"}} alt="Connect" />
+              <img src={meet} style={{ width: "40px" }} alt="Connect" />
             </div>
             <div>
               <h2>Connect</h2>
@@ -33,7 +33,7 @@ function Features() {
           </div>
           <div class="col d-flex align-items-start">
             <div class="icon-square text-dark p-4 flex-shrink-0 me-3">
-            <img src={cart} style={{width: "40px"}} alt="Adopt a Pet" />
+              <img src={cart} style={{ width: "40px" }} alt="Adopt a Pet" />
             </div>
             <div>
               <h2>AdoptLove</h2>

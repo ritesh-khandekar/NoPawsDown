@@ -19,8 +19,10 @@ function DonatePage() {
         
     }
     const ngoData = [
-        { "name": "Empowering Humanity NGO", "address": "31, Agarwal Life Style (Kavya) Global City Chikal, Road, Virar West, Dongare, Maharashtra 401303", "reviews": 1, "stars": 5, "image": "https://www.empoweringhumanity.org/wp-content/uploads/2021/09/cropped-Untitled-design-24.jpg", "phone": "8293027942" },
-        { "name": "Apollo Charitable Foundation", "address": "Rupakuchi, Assam 781314", "reviews": 12, "stars": 4.8, "phone": "9769806731", "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Logo_Apollo_Charitable_Foundation_%28N.G.O%29.jpg/450px-Logo_Apollo_Charitable_Foundation_%28N.G.O%29.jpg" },
+        { "name": "Stray Matters Foundation", "address": "31, Agarwal Life Style (Kavya) Global City Chikal, Road, Virar West, Dongare, Maharashtra 401303", "reviews": 1, "stars": 5, "image": "https://scontent.fpnq7-4.fna.fbcdn.net/v/t1.6435-9/70119440_107758293943680_7408863820195561472_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=y_RPwK_Pd2sAX-PFoMr&_nc_ht=scontent.fpnq7-4.fna&oh=00_AT9ie8uSITOljKqwpQjjJwLnvB9Ndxg-nFrvpw81yYirjw&oe=637D3F07", "phone": "8293027942" },
+        { "name": "Animals Matters to me", "address": "Rupakuchi, Assam 781314", "reviews": 8, "stars": 4.8, "phone": "9769806731", "image": "https://www.amtmindia.org/wp-content/uploads/2021/10/cropped-amtm-india-logo.png" },
+        { "name": "Animal Rescue and Care", "address": "Mumbai, Maharashtra", "reviews": 12, "stars": 4.8, "phone": "9920722633", "image": "https://i.pinimg.com/736x/65/95/54/659554706213492ef44308c5983003fa--animal-adoption-animal-rescue.jpg" },
+        { "name": "Rroaming Paws Foundation", "address": "Vasai-Virar, Maharashtra", "reviews": 21, "stars": 4.4, "phone": "8848230202", "image": "https://scontent.fpnq7-5.fna.fbcdn.net/v/t39.30808-6/300826557_413814367528296_1326438895483373609_n.png?_nc_cat=109&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=xQtb-Hy59K8AX-ZwAZk&_nc_ht=scontent.fpnq7-5.fna&oh=00_AT9NE9-RaMKq38u9H0NmFG3avaphRZJlF9jZRO-GNrPmjw&oe=635DC538" },
     ]
     const cards = ngoData.map((data, i) => {
         return <div key={"ngo"+i} className="card m-1 shadow" style={{ width: 18 + "rem" }}>

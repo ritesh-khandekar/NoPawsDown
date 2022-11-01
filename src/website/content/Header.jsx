@@ -14,7 +14,7 @@ function Header() {
                                 <Link to={"donate"} className="btn shadow-lg btn-primary border border-white btn-lg rounded-5 px-4 me-sm-3 m-1 text-white" >Donate</Link>
                                 <Link to={"adopt"} className="btn shadow-lg btn-primary btn-lg px-4 m-1 text-white rounded-5 border-white" >Adopt</Link>
                             </div>
-                            <Link to={"sponsor"} className="btn shadow-lg btn-secondary border rounded-5 border-white btn px-5 text-white mt-5" >Give a Pet for Adoption</Link>
+                            <Link to={"givepet"} className="btn shadow-lg btn-secondary border rounded-5 border-white btn px-5 text-white mt-5" >Give a Pet for Adoption</Link>
                         </div>
                     </div>
                 </div>
