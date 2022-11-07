@@ -3,12 +3,12 @@ import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
 
-const AdoptPetCard = ({ petId, petGender, petWeight, cropData, PetName, petAge, petBreed, petMessage, petType }) => {
+const AdoptPetCard = ({ petId, petGender, petWeight, cropData, PetName, petAge, petMessage, petType }) => {
     const navigate = useNavigate()
 
     const linkClick = e => {
         e.preventDefault();
-        localStorage.setItem("selectedPet", JSON.stringify({ petId, petGender, cropData, PetName, petAge, petBreed, petMessage, petType, navigator }));
+        localStorage.setItem("selectedPet", JSON.stringify({ petId, petGender, cropData, PetName, petAge, petMessage, petType, navigator }));
         navigate(petId)
     }
     return (

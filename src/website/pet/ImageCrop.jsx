@@ -14,7 +14,7 @@ const ImageCrop = ({ image, setCropData, setImgCrop }) => {
         }
     }
 
-    return <div className="container position-fixed top-0 vw-100 h-100 bg-white p-2 text-center">
+    return <div style={{ left: 0, zIndex: 10, width:"100%" }} className="container position-fixed top-0 vw-100 w-100 h-100 bg-white p-2 text-center">
         <img className="float-left img-preview" />
         <Cropper
             style={{ width: "100%" }}

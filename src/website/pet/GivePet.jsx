@@ -2,6 +2,8 @@ import React, { useEffect } from 'react'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
+import { motion } from "framer-motion"
+
 import uploadPicImg from "../images/upload_photo.png";
 import './steps.css'
 import { givepet } from '../actions/pets';
@@ -112,7 +114,7 @@ const GivePet = () => {
                                     </div>
                                     {
                                         userDetails ?
-                                            <>
+                                        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} >
                                                 <form action="" onSubmit={handleSubmit} autoComplete='false'>
                                                     <div className="row m-0">
                                                         <div className="m-1 form-group col">
@@ -154,7 +156,8 @@ const GivePet = () => {
                                                         <button type="submit" className='btn btn-success mx-3 px-4 py-2 my-2' disabled={isProgress ? true : false} >Send Details{isProgress ? <div className="spinner-border spinner-border-sm"></div> : ""}</button>
                                                     </div>
                                                 </form>
-                                            </> : <>
+                                            </motion.div> : 
+                                            <motion.div key={userDetails} initial={{ opacity: 0 }} animate={{  opacity: 1 }} >
                                                 <form action="" autoComplete='false'>
                                                     <div className="row m-0">
                                                         <div className="m-1 form-group col">
@@ -193,7 +196,7 @@ const GivePet = () => {
                                                         <button type="button" className='btn btn-primary mx-3 px-5 py-2 my-2 text-white' onClick={(e) => { e.preventDefault(); setUserDetails(true) }}>Next</button>
                                                     </div>
                                                 </form>
-                                            </>
+                                            </motion.div>
                                     }
                                 </div>
                             </div>

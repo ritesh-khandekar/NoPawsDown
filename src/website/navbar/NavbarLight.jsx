@@ -13,6 +13,8 @@ import { useEffect } from "react";
 
 const navData = [
     { "link": "About Us", "url": "about" },
+    // { "link": "NGO Login", "url": "ngo/login" },
+    // { "link": "NGO Register", "url": "ngo/register" },
     // "Donate",
     // "Adopt",
     // "NGO Registration",

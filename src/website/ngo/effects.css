@@ -1,0 +1,18 @@
+/* .card{
+    box-shadow: 5px 5px 5px #959595 !important;
+    border-radius: 30px;
+} */
+.card form input{
+    border: 1px solid black;
+}
+.shadowbtn{
+    box-shadow: 2px 2px 5px #959595 !important;
+}
+.checked{
+    color: gold;
+}
+.bg-glass{
+    backdrop-filter: blur(20px) !important;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0)) !important;
+    border-radius: 20px !important;
+}

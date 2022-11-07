@@ -59,8 +59,8 @@ const Adopt = () => {
                         <h2 className='text-center py-3 text-primary'>Pets Available for Adoption</h2>
                         <div className="container d-flex justify-content-evenly flex-wrap">
                             {
-                                AnimalInfo.petslist.map(({ petAge, petGender, PetName, petType, cropData, petWeight, petMessage }, idx) =>
-                                    <AdoptPetCard key={idx} petAge={petAge} PetName={PetName} petGender={petGender} petId={idx.toString()} petWeight={petWeight} cropData={cropData} petType={petType} petMessage={petMessage} navigator={navigate} />
+                                AnimalInfo.petslist.map(({ petAge, petGender, PetName, petType, cropData, petWeight, petMessage, _id }, idx) =>
+                                    <AdoptPetCard key={idx} petAge={petAge} PetName={PetName} petGender={petGender} petId={_id} petWeight={petWeight} cropData={cropData} petType={petType} petMessage={petMessage} navigator={navigate} />
                                 )
                             }
                         </div>

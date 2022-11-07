@@ -69,7 +69,11 @@ function Register() {
                     <input type="submit"  disabled={!allowedLogin || !email || !password || !name} className="btn btn-primary btn text-white px-5 py-2 m-2 border border-light border-opacity-50" value={"Register"} />
                 </div>
                 <p className="text-center">Already have an Account? <Link to={"/login"} className="text-primary text-decoration-none">Login</Link></p>
-
+                <hr />
+                <div className="d-flex justify-content-between text-center px-5">
+                    <Link to={"/ngo/login"} className="text-primary text-decoration-none">NGO Login</Link>
+                    <Link to={"/ngo/register"} className="text-primary text-decoration-none">NGO Register</Link>
+                </div>
             </form>
         </div>
 
