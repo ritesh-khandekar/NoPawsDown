@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import decode from 'jwt-decode'
 import { setCurrentUser } from "../actions/currentUser";
 import { useEffect } from "react";
+import { motion } from "framer-motion"
 
 // import 'bootstrap';
 // import 'bootstrap/dist/css/bootstrap.css';
@@ -56,7 +57,7 @@ function NavbarLight() {
     },[User?.token, dispatch])
 
     return <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
-        <div className="container">
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="container">
             <Link to={"/"} className="navbar-brand" role={"button"}><img src={icon} height="60" /></Link>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span className="navbar-toggler-icon"></span></button>
             <div className="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
@@ -97,7 +98,7 @@ function NavbarLight() {
                     }
                 </ul>
             </div>
-        </div>
+        </motion.div>
     </nav>
 }
 export default NavbarLight;

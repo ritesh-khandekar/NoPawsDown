@@ -1,4 +1,5 @@
 import * as api from '../api'
+import { setCurrentUser } from './currentUser'
 
 export const adminGetDonations = (setIsProgress, setData) => async (dispatch) => {
     try {
@@ -56,6 +57,7 @@ export const adminGetUsers = (setIsProgress, setData) => async (dispatch) => {
         setIsProgress(false)
     }
 }
+
 export const adminGetAdoptRequests = (setIsProgress, setData) => async (dispatch) => {
     try {
         let { data } = await api.adminGetAdoptRequests()
@@ -67,3 +69,14 @@ export const adminGetAdoptRequests = (setIsProgress, setData) => async (dispatch
     }
 }
 
+
+export const adminLogin = (authData, navigate) => async (dispatch) => {
+    try {
+        const { data } = await api.adminLogin(authData)
+        dispatch({ type: 'ADMIN_AUTH', data})
+        dispatch(setCurrentUser( JSON.parse(localStorage.getItem('Profile')) ))
+        navigate('/')
+    } catch (error) {
+        alert("Invalid credentials!")
+    }
+}

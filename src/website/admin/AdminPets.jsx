@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { adminGetPets } from '../actions/admin'
 import Loader from '../components/Loader'
+import { motion } from "framer-motion"
 
 const AdminPets = () => {
 
@@ -15,7 +16,7 @@ const AdminPets = () => {
         dispatch(adminGetPets(setisProgress, setTableData))
     }, [])
 
-    return <div className="container py-4">
+    return <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="container py-4">
         {
             isProgress ? <Loader /> : ""
         }
@@ -59,7 +60,7 @@ const AdminPets = () => {
                 }
             </tbody>
         </table>
-    </div>
+    </motion.div>
 }
 
 export default AdminPets

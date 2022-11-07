@@ -2,6 +2,7 @@ import React from 'react'
 import Cropper from "react-cropper";
 import "cropperjs/dist/cropper.css";
 import { useState } from 'react';
+import { motion } from "framer-motion"
 
 const ImageCrop = ({ image, setCropData, setImgCrop }) => {
 
@@ -14,7 +15,7 @@ const ImageCrop = ({ image, setCropData, setImgCrop }) => {
         }
     }
 
-    return <div style={{ left: 0, zIndex: 10, width:"100%" }} className="container position-fixed top-0 vw-100 w-100 h-100 bg-white p-2 text-center">
+    return <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} style={{ left: 0, zIndex: 10, width:"100%" }} className="container position-fixed top-0 vw-100 w-100 h-100 bg-white p-2 text-center">
         <img className="float-left img-preview" />
         <Cropper
             style={{ width: "100%" }}
@@ -36,7 +37,7 @@ const ImageCrop = ({ image, setCropData, setImgCrop }) => {
             guides={false}
         />
         <button className="btn m-2 btn-lg btn-primary px-5" onClick={cropImage}>Crop Image and Upload</button>
-    </div>
+    </motion.div>
 }
 
 export default ImageCrop

@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { useState } from "react";
 import { ngoLogin } from "../actions/ngo";
+import { motion } from "framer-motion"
 
 function Login() {
     const [email, setEmail] = useState()
@@ -21,7 +22,7 @@ function Login() {
         dispatch(ngoLogin({ email, password }, navigate))
     }
     return <section className="py-4 bg-gradient vh-100 row d-flex justify-content-center align-items-center h-100" >
-        <div className="col-md-6 col-lg-4 col-sm-10 rounded bg-white shadow p-3">
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="col-md-6 col-lg-4 col-sm-10 rounded bg-white shadow p-3">
             <p className="text-center h2 fw-bold my-3 mx-1 mx-md-4 text-secondary">NGO Login</p>
 
             <form className="mx-1 mx-md-4" onSubmit={handleSubmit}>
@@ -49,7 +50,7 @@ function Login() {
                 </div>
                 <p className="text-center">New to our Website? <Link to={"/ngo/register"} className="text-secondary text-decoration-none">Register</Link></p>
             </form>
-        </div>
+        </motion.div>
 
     </section>
 }

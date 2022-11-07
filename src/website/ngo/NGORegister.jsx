@@ -6,6 +6,7 @@ import ImageCrop from './../pet/ImageCrop';
 import "./effects.css"
 import uploadPicImg from "../images/upload_photo.png";
 import { ngoRegister } from "../actions/ngo";
+import { motion } from "framer-motion"
 
 
 function Register() {
@@ -58,7 +59,7 @@ function Register() {
             <div className="col-lg-5 col-md-6 col-sm-12 rounded text-center p-3">
                 <img src={cropData ? cropData : uploadPicImg} className="img-fluid" alt="Adopt Pet dog" />
             </div>
-            <div className="col-md-6 col-lg-4 col-sm-10 rounded bg-white shadow p-3">
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="col-md-6 col-lg-4 col-sm-10 rounded bg-white shadow p-3">
                 <p className="text-center h2 fw-bold my-3 mx-1 mx-md-4 text-secondary">NGO Register</p>
 
                 <form className="mx-1 mx-md-4" autoComplete="off" autoSave="false" onSubmit={handleSubmit}>
@@ -121,7 +122,7 @@ function Register() {
                     <p className="text-center">Already have an Account? <Link to={"/ngo/login"} className="text-secondary text-decoration-none">Login</Link></p>
 
                 </form>
-            </div>
+            </motion.div>
 
         </section>
     </>

@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { getNGOs } from "../actions/ngo";
 import Loader from "../components/Loader";
 import "../user/effects.css"
+import { motion } from "framer-motion"
 
 function StarRating(props) {
     const rating = props.rating;
@@ -47,7 +48,7 @@ function DonatePage() {
         {
             isProgress ?
                 <Loader /> :
-                <div className="d-flex p-2 flex-wrap justify-content-center">
+                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="d-flex p-2 flex-wrap justify-content-center">
                     {
                         NGOInfo ? 
                         NGOInfo.ngolist.map((data, i) => <div key={"ngo" + i} className="card m-1 shadow" style={{ width: 18 + "rem" }}>
@@ -62,7 +63,7 @@ function DonatePage() {
                         </div>)
                         :""
                     }
-                </div>
+                </motion.div>
         }
     </>
 }

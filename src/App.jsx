@@ -30,6 +30,7 @@ import Admin from './website/admin/Admin';
 import AdminNGOs from './website/admin/AdminNGOs';
 import AdminNGODonations from './website/admin/AdminNGODonations';
 import AdminPets from './website/admin/AdminPets';
+import AdminLogin from './website/admin/AdminLogin';
 import AdminAdoptRequests from './website/admin/AdminAdoptRequests.jsx';
 import AdminUsers from './website/admin/AdminUsers';
 
@@ -58,7 +59,7 @@ function App() {
       <Route path="ngo/login" element={<NGOLogin />} />
 
       <Route path="admin" element={<Admin />} />
-      <Route path="admin/login" element={<NGOLogin />} />
+      <Route path="admin/login" element={<AdminLogin />} />
       <Route path="admin/ngo" element={<AdminNGOs />} />
       <Route path="admin/pets" element={<AdminPets />} />
       <Route path="admin/donations" element={<AdminNGODonations />} />

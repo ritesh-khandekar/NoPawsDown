@@ -93,14 +93,14 @@ const GivePet = () => {
             {
                 finishPage ?
                     <>
-                        <div className="text-center container p-3 text-secondary">
+                        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center container p-3 text-secondary">
                             <div className="h3">
                                 Thank you so much!
                             </div>
                             <div className="py-2">
                                 We will contact you soon!
                             </div>
-                        </div>
+                        </motion.div>
                     </> :
                     <>
                         <div className="container">

@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import Loader from '../components/Loader'
+import { motion } from "framer-motion"
 
 const NGODonations = ({ Donations }) => {
 
@@ -17,7 +18,7 @@ const NGODonations = ({ Donations }) => {
         }))
     }, [])
 
-    return <div className="container">
+    return <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="container">
         {
             isProgress ? <Loader /> : ""
         }
@@ -49,7 +50,7 @@ const NGODonations = ({ Donations }) => {
                 }
             </tbody>
         </table>
-    </div>
+    </motion.div>
 }
 
 export default NGODonations

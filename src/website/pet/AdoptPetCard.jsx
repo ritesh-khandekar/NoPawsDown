@@ -1,6 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { motion } from "framer-motion"
 
 
 const AdoptPetCard = ({ petId, petGender, petWeight, cropData, PetName, petAge, petMessage, petType }) => {
@@ -12,7 +13,7 @@ const AdoptPetCard = ({ petId, petGender, petWeight, cropData, PetName, petAge, 
         navigate(petId)
     }
     return (
-        <div className='card mb-4 flex-grow-0' style={{ width: "17rem" }}>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}  className='card mb-4 flex-grow-0' style={{ width: "17rem" }}>
             <img alt='' src={cropData} className="card-img-top" />
             <div className="card-body">
                 <div className="card-title text-primary">
@@ -31,7 +32,7 @@ const AdoptPetCard = ({ petId, petGender, petWeight, cropData, PetName, petAge, 
                     <button onClick={linkClick} className="btn btn-primary px-5 py-2 text-white my-2">Adopt</button>
                 </div>
             </div>
-        </div>
+        </motion.div>
     )
 }
 

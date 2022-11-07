@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux'
 import { approveRequest, getAARs, rejectRequest } from '../actions/ngo'
 import Loader from '../components/Loader'
 import AARADialogue from './AARADialogue'
+import { motion } from "framer-motion"
 
 const AARA = ({ AARAInfo, setAARSInfo }) => {
     const dispatch = useDispatch()
@@ -40,7 +41,7 @@ const AARA = ({ AARAInfo, setAARSInfo }) => {
         // tableData[parseInt(o.number) - 1] = { ...tableData[parseInt(o.number) - 1], ...data }
         // setTableData(tableData)
     }
-    return <div className="container">
+    return <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="container">
         {
             isProgress ? <Loader /> : ""
         }
@@ -82,7 +83,7 @@ const AARA = ({ AARAInfo, setAARSInfo }) => {
                 }
             </tbody>
         </table>
-    </div>
+    </motion.div>
 }
 
 export default AARA

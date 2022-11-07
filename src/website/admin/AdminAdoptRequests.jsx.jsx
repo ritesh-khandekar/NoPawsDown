@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { adminGetAdoptRequests, adminGetDonations } from '../actions/admin'
 import Loader from '../components/Loader'
+import { motion } from "framer-motion"
 
 const AdminAdoptRequests = () => {
 
@@ -15,7 +16,7 @@ const AdminAdoptRequests = () => {
         dispatch(adminGetAdoptRequests(setisProgress, setTableData))
     }, [])
 
-    return <div className="container py-4">
+    return <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="container py-4">
         {
             isProgress ? <Loader /> : ""
         }
@@ -53,7 +54,7 @@ const AdminAdoptRequests = () => {
                 }
             </tbody>
         </table>
-    </div>
+    </motion.div>
 }
 
 export default AdminAdoptRequests

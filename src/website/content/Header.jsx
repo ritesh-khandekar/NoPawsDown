@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import './Header.css'
-import Features from "./Features";
+import { motion } from "framer-motion"
+
 
 function Header() {
     return <>
         <header className="vh-100 py-5 bg-image-home d-flex justify-content-center align-items-center">
-            <div className="container px-5">
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="container px-5">
                 <div className="row gx-5 justify-content-center">
                     <div className="col-lg-6">
                         <div className="text-center my-5">
@@ -18,7 +19,7 @@ function Header() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </motion.div>
         </header>
         {/* <Features /> */}
     </>

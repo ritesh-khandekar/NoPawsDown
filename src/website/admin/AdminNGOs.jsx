@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { adminGetNGOs } from '../actions/admin'
 import Loader from '../components/Loader'
+import { motion } from "framer-motion"
 
 const AdminNGOs = () => {
 
@@ -16,7 +17,7 @@ const AdminNGOs = () => {
         dispatch(adminGetNGOs(setisProgress, setTableData))
     }, [])
 
-    return <div className="container py-3">
+    return <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="container py-3">
         {
             isProgress ? <Loader /> : ""
         }
@@ -55,7 +56,7 @@ const AdminNGOs = () => {
                 }
             </tbody>
         </table>
-    </div>
+    </motion.div>
 }
 
 export default AdminNGOs

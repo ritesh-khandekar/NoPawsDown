@@ -3,9 +3,11 @@ import dog from "../images/dog_white_bg.jpg";
 import search from '../images/search.png'
 import meet from '../images/meet.png'
 import cart from '../images/cart.jpg'
+import { motion } from "framer-motion"
+
 
 function Features() {
-  return <div className="container my-4">
+  return <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="container my-4">
     <h2 className="feature-header text-center">Your Pet Adoption Journey With NoPawsDown</h2>
     <div className="row p-4">
       <div className="col-12 col-lg-6 col-md-6 d-flex justify-content-center align-items-center">
@@ -63,6 +65,6 @@ function Features() {
         </div>
       </div>
     </div>
-  </div>;
+  </motion.div>;
 }
 export default Features;

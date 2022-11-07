@@ -14,6 +14,7 @@ export const givepet = (givepetData) => API.post('/pets/givepet', givepetData);
 export const getpets = () => API.get('/pets/getpets');
 
 export const admin = () => API.get('/admin/');
+export const adminLogin = (authData) => API.post('/admin/login', authData);
 export const adminGetPets = () => API.get('/admin/pets');
 export const adminGetDonations = () => API.get('/admin/donations');
 export const adminGetNGOs = () => API.get('/admin/ngos');
