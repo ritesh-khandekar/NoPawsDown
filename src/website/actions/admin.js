@@ -57,7 +57,6 @@ export const adminGetUsers = (setIsProgress, setData) => async (dispatch) => {
         setIsProgress(false)
     }
 }
-
 export const adminGetAdoptRequests = (setIsProgress, setData) => async (dispatch) => {
     try {
         let { data } = await api.adminGetAdoptRequests()
@@ -68,15 +67,27 @@ export const adminGetAdoptRequests = (setIsProgress, setData) => async (dispatch
         setIsProgress(false)
     }
 }
-
-
+export const admin = (setIsProgress, setData, setAdminLogin) => async (dispatch) => {
+    try {
+        const id = JSON.parse(localStorage.getItem("Profile")).result.type;
+        let { data } = await api.admin();
+        setData(data.result)
+        setIsProgress(false)
+        setAdminLogin(true)
+    } catch (error) {
+        // alert("Invalid credentials!" + error)
+        setAdminLogin(false)
+        setIsProgress(false)
+    }
+}
 export const adminLogin = (authData, navigate) => async (dispatch) => {
     try {
         const { data } = await api.adminLogin(authData)
-        dispatch({ type: 'ADMIN_AUTH', data})
-        dispatch(setCurrentUser( JSON.parse(localStorage.getItem('Profile')) ))
-        navigate('/')
+        console.log(data)
+        dispatch({ type: 'AUTH', data})
+        dispatch(setCurrentUser( JSON.parse(localStorage.getItem('Profile'))))
+        navigate('/admin')
     } catch (error) {
-        alert("Invalid credentials!")
+        alert("Invalid credentials!"+error)
     }
 }

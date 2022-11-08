@@ -39,22 +39,38 @@ function NavbarLight() {
     var User = useSelector((state) => (state.currentUserReducer))
     const navigate = useNavigate();
 
+    let profile = JSON.parse(localStorage.getItem("Profile"))
+    let login = "USER"
+    if (profile) {
+        profile = profile.result
+        try {
+            let p = profile['reviews'] > 0
+            login = p ? "NGO" : login
+        } catch (e) {
+        }
+        try {
+            let p = profile['type'].length > 0
+            login = p ? "ADMIN" : login
+        } catch (e) {
+        }
+    }
+
     const handleLogout = () => {
-        dispatch({ type: 'LOGOUT'});
+        dispatch({ type: 'LOGOUT' });
         navigate('/')
         dispatch(setCurrentUser(null))
     }
-    
+
     useEffect(() => {
-        const token = User?.token 
-        if(token){
+        const token = User?.token
+        if (token) {
             const decodedToken = decode(token)
-            if(decodedToken.exp * 1000 < new Date().getTime()){
+            if (decodedToken.exp * 1000 < new Date().getTime()) {
                 handleLogout()
             }
         }
-        dispatch(setCurrentUser( JSON.parse(localStorage.getItem('Profile'))))
-    },[User?.token, dispatch])
+        dispatch(setCurrentUser(JSON.parse(localStorage.getItem('Profile'))))
+    }, [User?.token, dispatch])
 
     return <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="container">
@@ -65,12 +81,31 @@ function NavbarLight() {
                     <NavLinks data={navData} />
                     {User ?
                         <>
-                            <li className="nav-item py-2">
-                                <Link to={"adopt"} className="btn btn-outline-primary mx-1">Adopt</Link>
-                            </li>
-                            <li className="nav-item py-2">
-                                <Link to={"donate"} className="btn btn-outline-secondary mx-1">Donate</Link>
-                            </li>
+                            {
+                                login != "ADMIN" && login != "NGO" ?
+                                    <>
+                                        <li className="nav-item py-2">
+                                            <Link to={"adopt"} className="btn btn-outline-primary mx-1">Adopt</Link>
+                                        </li>
+                                        <li className="nav-item py-2">
+                                            <Link to={"donate"} className="btn btn-outline-secondary mx-1">Donate</Link>
+                                        </li>
+                                    </> : (login == "NGO" ? <>
+                                        <li className="nav-item py-2">
+                                            <Link to={"/ngo"} className="btn btn-outline-primary mx-1">Dashboard</Link>
+                                        </li>
+                                        <li className="nav-item py-2">
+                                            <Link to={"/logout"} className="btn btn-outline-danger mx-1">Logout</Link>
+                                        </li>
+                                    </> : <>
+                                        <li className="nav-item py-2">
+                                            <Link to={"/admin"} className="btn btn-outline-primary mx-1">Admin Dashboard</Link>
+                                        </li>
+                                        <li className="nav-item py-2">
+                                            <Link to={"/logout"} className="btn btn-outline-danger mx-1">Logout</Link>
+                                        </li>
+                                    </>)
+                            }
 
                             {/* <li class="nav-item dropdown">
                             <Link class="nav-link bg-primary px-3 rounded-5 mx-1 text-white" id="navbarDarkDropdownMenuLink" to={""} data-bs-toggle="dropdown" aria-expanded="false">
@@ -82,9 +117,16 @@ function NavbarLight() {
                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>
                         </li> */}
-                            <li className="nav-item py-2">
-                                <Link to={"user"} className="nav-link bg-primary px-3 rounded-5 mx-1 text-white">{User.result.name.charAt(0).toUpperCase()}</Link>
-                            </li>
+
+                            {
+                                login == "ADMIN" ?
+                                    <li className="nav-item py-2">
+                                        <div className="nav-link bg-primary px-3 rounded-5 mx-1 text-white"><b>Admin</b></div>
+                                    </li> :
+                                    <li className="nav-item py-2">
+                                        <Link to={login == "NGO" ? "ngo" : (login == "ADMIN" ? "admin" : "user")} className="nav-link bg-primary px-3 rounded-5 mx-1 text-white">{User.result.name.charAt(0).toUpperCase()}</Link>
+                                    </li>
+                            }
                         </>
                         :
                         <>

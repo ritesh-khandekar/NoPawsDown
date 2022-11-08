@@ -38,6 +38,7 @@ const GivePet = () => {
 
 
     const [picture, setPicture] = useState(null); 
+    const [certificate, setcertificate] = useState(null); 
     const [imgData, setImgData] = useState(null); // original image passing to cropper js
     const [imgCrop, setImgCrop] = useState(false); // cropper.js layout
     const [cropData, setCropData] = useState(null); // preview cropped image
@@ -55,9 +56,22 @@ const GivePet = () => {
 
         }
     }
+    const onChangeCert = (e) => {
+        e.preventDefault()
+        if (e.target.files[0]) {
+            // setPicture(e.target.files[0]);
+            const reader = new FileReader();
+            reader.addEventListener("load", () => {
+                setcertificate(reader.result);
+            });
+            reader.readAsDataURL(e.target.files[0]);
+            // setImgCrop(true)
+
+        }
+    }
     const handleSubmit = (e) => {
         e.preventDefault()
-        let data = { FirstName, LastName, Email, Phone, State, City, PinCode, Apartment, PetName, petType, petAge, petGender, petWeight, petHeight, cropData }
+        let data = { FirstName, LastName, Email, Phone, State, City, PinCode, Apartment, PetName, petType, petAge, petGender, petWeight, petHeight, cropData, certificate }
         let filledData = true;
         for (let key in data) {
             if (data[key] == null || data[key] == "") {
@@ -184,8 +198,12 @@ const GivePet = () => {
                                                         </div>
                                                     </div>
                                                     <div className="form-row px-3">
-                                                        <label htmlFor="pet_pic">Photos of your pet:</label>
+                                                        <label htmlFor="">Photos of your pet:</label>
                                                         <input type="file" name="" accept='image/*' className='form-control col' onChange={onChangePic} />
+                                                    </div>
+                                                    <div className="form-row px-3">
+                                                        <label htmlFor="">Certificate of pet Adoption:</label>
+                                                        <input type="file" name="" accept='image/*' className='form-control col' onChange={onChangeCert} />
                                                     </div>
                                                     <div className="row p-4 py-3">
                                                         <textarea name="" id="" rows="5" className="form-control col" placeholder='Type a message...' onChange={(e) => setpetMessage(e.target.value)} value={petMessage}></textarea>

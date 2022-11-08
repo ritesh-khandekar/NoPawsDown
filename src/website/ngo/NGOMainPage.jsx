@@ -3,7 +3,6 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { getAARs, getDonations, getngo } from '../actions/ngo'
-import { checkNGOlogin } from "../components/checklogin"
 import Loader from '../components/Loader'
 import adoptionrequest from '../admin/adoption_requests_icon.png'
 import donations_icon from '../admin/donations_icon.png'
@@ -53,7 +52,7 @@ const NGOMainPage = () => {
         }
         {
             NGOLogin && showMainPage ?
-                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} class="container d-flex justify-content-between mt-4">
+                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} class="container d-flex justify-content-between flex-wrap mt-4">
                     <div class="rounded-3 p-5 shadow text-center" style={{ minWidth: "40%" }}>
                         <img src={adoptionrequest} alt="Donate Icon" width="140px" />
                         <h4>Animal Adoption Requests</h4>
@@ -76,6 +75,7 @@ const NGOMainPage = () => {
                         </ol>
                     </nav>
                     <h2 className='py-3'>Donations Received</h2>
+                    <h4 className='py-2'>Total Donation Received: <b className='text-success'>₹ {totalDonations}</b></h4>
                     <p>Donations received by <b className="text-primary">{NGO.name}</b></p>
                     <NGODonations Donations={donationsDetails} />
                 </div> : ""

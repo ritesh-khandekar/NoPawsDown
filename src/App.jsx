@@ -13,6 +13,7 @@ import RescueForm from './website/pet/Rescue';
 
 import About from './website/components/About';
 import User from './website/components/User';
+import Logout from './website/components/Logout';
 
 import Adopt from './website/pet/Adopt';
 import AdoptPetDetails from './website/pet/AdoptPetDetails';
@@ -42,6 +43,7 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="login" element={<Login />} />
       <Route path="adopt" element={<Adopt />} />
+      <Route path="logout" element={<Logout />} />
       <Route path="adopt/:id/results" element={<AdoptResults />} />
       <Route path="adopt/:id" element={<AdoptPetDetails />} />
       <Route path="user" element={<User />} />

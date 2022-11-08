@@ -4,7 +4,7 @@ import { useState } from 'react'
 import Loader from '../components/Loader'
 import { motion } from "framer-motion"
 
-const NGODonations = ({ Donations }) => {
+const NGODonations = ({ Donations, totalDonations }) => {
 
     const [isProgress, setisProgress] = useState(false)
     const [tableData, setTableData] = useState([])

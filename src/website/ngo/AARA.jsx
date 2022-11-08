@@ -28,9 +28,9 @@ const AARA = ({ AARAInfo, setAARSInfo, setshowMainPage, setshowAdoptionDetails, 
     useEffect(() => {
         setTableData(AARAInfo.map(function (obj, number) {
             number += 1
-            const { PetName, petGender, cropData, petType, FirstName, LastName, Apartment, City, PinCode, State, Phone } = obj.petId
+            const { PetName, certificate, petGender, cropData, petType, FirstName, LastName, Apartment, City, PinCode, State, Phone } = obj.petId
             const [petOwner, petName, petOwnerPhone, petOwnerAddress, petImage, adopter, adoptorPhone, adopterAddress, status, _id] = [(FirstName + " " + LastName), PetName, Phone, ([Apartment, City, State].join(", ") + " - " + PinCode), cropData, obj.FirstName + " " + obj.LastName, obj.Phone, ([obj.Apartment, obj.City, obj.State].join(", ") + " - " + obj.PinCode), obj.status, obj._id]
-            return { petType, petGender, petOwner, petName, petOwnerPhone, petImage, petOwnerAddress, adopter, adoptorPhone, adopterAddress, status, number, approveHandler, rejectHandler, _id }
+            return { petType, petGender,certificate, petOwner, petName, petOwnerPhone, petImage, petOwnerAddress, adopter, adoptorPhone, adopterAddress, status, number, approveHandler, rejectHandler, _id }
         }))
     }, [])
 
@@ -55,7 +55,7 @@ const AARA = ({ AARAInfo, setAARSInfo, setshowMainPage, setshowAdoptionDetails, 
         <p>Approve or reject a animal adoption request after verifying the details of adopter</p>
         {
             viewDialogue ?
-                <AARADialogue {...tableData.filter((obj) => obj._id == localStorage.getItem("REQ"))[0]} /> :
+                <AARADialogue {...tableData.filter((obj) => obj._id == localStorage.getItem("REQ"))[0]} viewDialogue={setViewDialogue} /> :
                 ""
         }
         <table className="table table-stripped table-bordered">
