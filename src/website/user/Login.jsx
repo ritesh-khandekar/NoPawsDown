@@ -50,9 +50,10 @@ function Login() {
                 </div>
                 <p className="text-center">New to our Website? <Link to={"/register"} className="text-primary text-decoration-none">Register</Link></p>
                 <hr />
-                <div className="d-flex justify-content-between text-center px-5">
+                <div className="d-flex justify-content-between text-center">
                     <Link to={"/ngo/login"} className="text-primary text-decoration-none">NGO Login</Link>
                     <Link to={"/ngo/register"} className="text-primary text-decoration-none">NGO Register</Link>
+                    <Link to={"/admin/login"} className="text-primary text-decoration-none">Admin</Link>
                 </div>
             </form>
         </motion.div>

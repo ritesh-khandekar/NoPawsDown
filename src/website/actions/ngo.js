@@ -1,7 +1,7 @@
 import * as api from '../api'
 import { setCurrentUser } from './currentUser'
 
-export const getngo = (setIsProgress, setNGOInfo) => async (dispatch) => {
+export const getngo = (setIsProgress, setNGOInfo, setNGOLogin) => async (dispatch) => {
     try {
         const id = JSON.parse(localStorage.getItem("Profile")).result._id
         const { data } = await api.getngo(id)
@@ -9,43 +9,53 @@ export const getngo = (setIsProgress, setNGOInfo) => async (dispatch) => {
         dispatch({ type: 'GETNGO', data })
         setIsProgress(false)
     } catch (error) {
-        alert("Invalid credentials!" + error)
+        // alert("Invalid credentials!" + error)
+        setNGOLogin(false)
         setIsProgress(false)
     }
 }
-export const getNGOs = (setIsProgress, setNGOInfo) => async (dispatch) => {
+
+export const getNGOs = (setIsProgress, setNGOInfo, setNGOLogin) => async (dispatch) => {
     try {
         const { data } = await api.getNGOs()
         setNGOInfo(data)
         dispatch({ type: 'getNGOS', data })
         setIsProgress(false)
     } catch (error) {
-        alert("Invalid credentials!" + error)
+        // alert("Invalid credentials!" + error)
         setIsProgress(false)
+        setNGOLogin(false)
     }
 }
 
-export const getDonations = (setIsProgress, setDonationsInfo) => async (dispatch) => {
-    const id = JSON.parse(localStorage.getItem("Profile")).result._id
+export const getDonations = (setIsProgress, setDonationsInfo, setTotalDonations, setNGOLogin) => async (dispatch) => {
     try {
+        const id = JSON.parse(localStorage.getItem("Profile")).result._id
         const { data } = await api.getDonations(id)
         console.log(data)
+        let total = data.donations.reduce((acc, val, i) => acc + val.amount, 0)
+        setTotalDonations(total)
         setDonationsInfo(data.donations)
         dispatch({ type: 'getNGOS', data })
         setIsProgress(false)
     } catch (error) {
-        alert("Invalid credentials!" + error)
+        // alert("Invalid credentials!" + error)
+        setNGOLogin(false)
         setIsProgress(false)
     }
 }
+
 export const getAARs = (setIsProgress, setAARSInfo) => async (dispatch) => {
+
     try {
+        const id = JSON.parse(localStorage.getItem("Profile")).result.reviews
         const { data } = await api.getAARs()
-        setAARSInfo(data)
+        
+        setAARSInfo(data.requests)
         dispatch({ type: 'GET_AA_REQUESTS', data })
         setIsProgress(false)
     } catch (error) {
-        alert("Invalid credentials!" + error)
+        // alert("Invalid credentials!" + error)
         setIsProgress(false)
     }
 }
@@ -81,8 +91,8 @@ export const ngoRegister = (authData, navigate) => async (dispatch) => {
     try {
         const { data } = await api.ngoRegister(authData)
         console.log(data)
-        dispatch({ type: 'AUTH', data})
-        dispatch(setCurrentUser( JSON.parse(localStorage.getItem('Profile')) ))
+        dispatch({ type: 'AUTH', data })
+        dispatch(setCurrentUser(JSON.parse(localStorage.getItem('Profile'))))
         navigate('/ngo')
     } catch (error) {
         alert("Invalid credentials!")
@@ -92,8 +102,8 @@ export const ngoRegister = (authData, navigate) => async (dispatch) => {
 export const ngoLogin = (authData, navigate) => async (dispatch) => {
     try {
         const { data } = await api.ngoLogin(authData)
-        dispatch({ type: 'AUTH', data})
-        dispatch(setCurrentUser( JSON.parse(localStorage.getItem('Profile')) ))
+        dispatch({ type: 'AUTH', data })
+        dispatch(setCurrentUser(JSON.parse(localStorage.getItem('Profile'))))
         navigate('/ngo')
     } catch (error) {
         alert("Invalid credentials!")

@@ -6,6 +6,7 @@ import { getpets } from '../actions/pets'
 import { useState } from 'react'
 import Loader from '../components/Loader'
 import { useEffect } from 'react'
+import PleaseLogin from '../components/PleaseLogin'
 
 const Adopt = () => {
     const navigate = useNavigate()
@@ -13,9 +14,13 @@ const Adopt = () => {
 
     const [AnimalInfo, setAnimalInfo] = useState([])
     const [isProgress, setIsProgress] = useState(true)
+    const [notLogin, setnotLogin] = useState(false)
 
+    const isLogin  = !!localStorage.getItem("Profile")
+
+    
     useEffect(() => {
-        dispatch(getpets(setIsProgress, setAnimalInfo))
+        dispatch(getpets(setIsProgress, setAnimalInfo, isLogin, setnotLogin))
     }, [])
     // let AnimalInfo = [{
     //     petType: "Dog",
@@ -53,7 +58,10 @@ const Adopt = () => {
     return (
         <>
             {
-                isProgress ?
+                notLogin?
+                <PleaseLogin LoginText={"Please Login"} />
+                :
+                (isProgress ?
                     <Loader /> :
                     <>
                         <h2 className='text-center py-3 text-primary'>Pets Available for Adoption</h2>
@@ -64,7 +72,7 @@ const Adopt = () => {
                                 )
                             }
                         </div>
-                    </>
+                    </>)
             }
         </>
     )

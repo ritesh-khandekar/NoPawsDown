@@ -39,9 +39,9 @@ const NGODonations = ({ Donations }) => {
                     tableData ?
                         tableData.map(({ number, email, name, amount, paymentID, date }) => <tr key={number}>
                             <td>{number}</td>
-                            <td>{name}</td>
+                            <td><b className='text-primary'>{name}</b></td>
                             <td>{email}</td>
-                            <td>{amount}</td>
+                            <td><b className='text-success'>₹ {amount}</b></td>
                             <td>{date}</td>
                             <td>{paymentID}</td>
                         </tr>

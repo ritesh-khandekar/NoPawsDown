@@ -48,7 +48,13 @@ function Login() {
                 <div className="d-flex justify-content-center mx-4 mb-3">
                     <button type="submit" className="btn btn-primary btn border-opacity-50 px-5 py-2 border border-light text-white">Login and Continue</button>
                 </div>
-                <p className="text-center">New to our Website? <Link to={"/ngo/register"} className="text-secondary text-decoration-none">Register</Link></p>
+                <p className="text-center">Don't have NGO Account? <Link to={"/ngo/register"} className="text-secondary text-decoration-none">Register</Link></p>
+                <hr />
+                <div className="d-flex justify-content-between text-center">
+                    <Link to={"/login"} className="text-primary text-decoration-none">User Login</Link>
+                    <Link to={"/register"} className="text-primary text-decoration-none">User Register</Link>
+                    <Link to={"/admin/login"} className="text-primary text-decoration-none">Admin</Link>
+                </div>
             </form>
         </motion.div>
 

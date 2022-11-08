@@ -7,7 +7,7 @@ import Loader from '../components/Loader'
 import AARADialogue from './AARADialogue'
 import { motion } from "framer-motion"
 
-const AARA = ({ AARAInfo, setAARSInfo }) => {
+const AARA = ({ AARAInfo, setAARSInfo, setshowMainPage, setshowAdoptionDetails, setshowDonationDetails }) => {
     const dispatch = useDispatch()
 
     const [isProgress, setisProgress] = useState(false)
@@ -45,6 +45,12 @@ const AARA = ({ AARAInfo, setAARSInfo }) => {
         {
             isProgress ? <Loader /> : ""
         }
+        <nav aria-label="breadcrumb" className='py-3'>
+            <ol class="breadcrumb border p-3 rounded">
+                <li class="breadcrumb-item text-primary" onClick={()=> {setshowMainPage(true); setshowAdoptionDetails(false)}}>Home </li>
+                <li class="breadcrumb-item active" aria-current="page">Animal Adoption Requests</li>
+            </ol>
+        </nav>
         <h2 className='py-3'>Animal Adoption Requests</h2>
         <p>Approve or reject a animal adoption request after verifying the details of adopter</p>
         {

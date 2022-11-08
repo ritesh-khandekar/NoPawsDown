@@ -14,7 +14,12 @@ export const givepet = (givepetData, navigate, setIsProgress) => async (dispatch
     }
 }
 
-export const getpets = (setIsProgress, setAnimalInfo) => async (dispatch) => {
+export const getpets = (setIsProgress, setAnimalInfo, isLogin, setNotLogin) => async (dispatch) => {
+    if(!isLogin){
+        setIsProgress(true)
+        setNotLogin(true)
+        return;
+    }
     try {
         const { data } = await api.getpets()
         console.log(data)
