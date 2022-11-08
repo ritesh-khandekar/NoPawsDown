@@ -26,16 +26,16 @@ const AARA = ({ AARAInfo, setAARSInfo }) => {
         dispatch(rejectRequest(setisProgress, Req, setViewDialogue, setData))
     }
     useEffect(() => {
-        setTableData(AARAInfo.requests.map(function (obj, number) {
+        setTableData(AARAInfo.map(function (obj, number) {
             number += 1
             const { PetName, petGender, cropData, petType, FirstName, LastName, Apartment, City, PinCode, State, Phone } = obj.petId
-            const [petOwner, petName, petOwnerPhone, petOwnerAddress, petImage, adopter, adoptorPhone, adopterAddress, status, _id] = [(FirstName + " " + LastName), PetName, Phone, ([Apartment, City, State].join(", ") + " - " + PinCode), cropData, obj.FirstName + " " + obj.LastName, obj.Phone, ([obj.Apartment, obj.City, obj.State].join(", ") + " - " + obj.PinCode), obj.adopted ? "Approved" : "Not Approved", obj._id]
+            const [petOwner, petName, petOwnerPhone, petOwnerAddress, petImage, adopter, adoptorPhone, adopterAddress, status, _id] = [(FirstName + " " + LastName), PetName, Phone, ([Apartment, City, State].join(", ") + " - " + PinCode), cropData, obj.FirstName + " " + obj.LastName, obj.Phone, ([obj.Apartment, obj.City, obj.State].join(", ") + " - " + obj.PinCode), obj.status, obj._id]
             return { petType, petGender, petOwner, petName, petOwnerPhone, petImage, petOwnerAddress, adopter, adoptorPhone, adopterAddress, status, number, approveHandler, rejectHandler, _id }
         }))
     }, [])
 
     const setData = (id, data) => {
-        dispatch(getAARs(setisProgress, setAARSInfo))
+        dispatch(getAARs(setisProgress, setAARSInfo, approveHandler, rejectHandler))
         // const o = tableData.filter((obj) => obj._id == id)
         // console.log(o)
         // tableData[parseInt(o.number) - 1] = { ...tableData[parseInt(o.number) - 1], ...data }

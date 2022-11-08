@@ -1,6 +1,7 @@
 import React from 'react'
 
-const AARADialogue = ({ number, petType, petOwner, petName, petOwnerPhone, petOwnerAddress, petImage, adopter, adoptorPhone, adopterAddress, status, approveHandler, rejectHandler, }) => {
+const AARADialogue = ({ number, petType, adopted, petOwner, petName, petOwnerPhone, petOwnerAddress, petImage, adopter, adoptorPhone, adopterAddress, status, approveHandler, rejectHandler, }) => {
+    console.log(adopted)
     return <div className='vh-100 d-flex w-100 position-fixed top-0 justify-content-center align-items-center' style={{ left: 0, backgroundColor: "rgba(0,0,0,0.5)" }}>
         <div className="p-4 rounded-3 pb-3 bg-white shadow">
 

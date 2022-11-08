@@ -55,6 +55,8 @@ function App() {
       <Route path="register" element={<Register />} />
       
       <Route path="ngo" element={<NGOMainPage />} />
+      <Route path="ngo/adoptrequests" element={<NGOMainPage />} />
+      <Route path="ngo/donations" element={<NGOMainPage />} />
       <Route path="ngo/register" element={<NGORegister />} />
       <Route path="ngo/login" element={<NGOLogin />} />
 
