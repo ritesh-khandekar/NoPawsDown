@@ -9,6 +9,7 @@ export const signUp = (authData) => API.post('/user/signup', authData);
 export const adopt = (adoptData) => API.post('/adopt', adoptData);
 
 export const donate = (donateData) => API.post('/donate', donateData);
+export const newOrderID = (donateData) => API.post('/donate/orderId', donateData);
 
 export const givepet = (givepetData) => API.post('/pets/givepet', givepetData);
 export const getpets = () => API.get('/pets/getpets');

@@ -94,9 +94,6 @@ function NavbarLight() {
                                         <li className="nav-item py-2">
                                             <Link to={"/ngo"} className="btn btn-outline-primary mx-1">Dashboard</Link>
                                         </li>
-                                        <li className="nav-item py-2">
-                                            <Link to={"/logout"} className="btn btn-outline-danger mx-1">Logout</Link>
-                                        </li>
                                     </> : <>
                                         <li className="nav-item py-2">
                                             <Link to={"/admin"} className="btn btn-outline-primary mx-1">Admin Dashboard</Link>
@@ -123,9 +120,14 @@ function NavbarLight() {
                                     <li className="nav-item py-2">
                                         <div className="nav-link bg-primary px-3 rounded-5 mx-1 text-white"><b>Admin</b></div>
                                     </li> :
-                                    <li className="nav-item py-2">
-                                        <Link to={login == "NGO" ? "ngo" : (login == "ADMIN" ? "admin" : "user")} className="nav-link bg-primary px-3 rounded-5 mx-1 text-white">{User.result.name.charAt(0).toUpperCase()}</Link>
-                                    </li>
+                                    <>
+                                        <li className="nav-item py-2">
+                                            <Link to={login == "NGO" ? "ngo" : (login == "ADMIN" ? "admin" : "")} className="nav-link bg-primary px-3 rounded-5 mx-1 text-white">{User.result.name.charAt(0).toUpperCase()}</Link>
+                                        </li>
+                                        <li className="nav-item py-2">
+                                            <Link to={"/logout"} className="btn btn-outline-danger mx-1">Logout</Link>
+                                        </li>
+                                    </>
                             }
                         </>
                         :

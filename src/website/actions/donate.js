@@ -10,3 +10,12 @@ export const donate = (donateData, navigate) => async (dispatch) => {
         alert("Invalid credentials for Donation!")
     }
 }
+
+// export const  newOrderID = (donateData)=> {
+//     try {
+//         const { data } = await api.newOrderID(donateData)
+//         return data
+//     } catch (error) {
+//         return "Invalid credentials for Donation!"
+//     }
+// }

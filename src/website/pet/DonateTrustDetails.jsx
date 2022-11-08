@@ -5,7 +5,10 @@ import { motion } from "framer-motion"
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { donate } from '../actions/donate';
+import useRazorpay from 'react-razorpay'
 import PleaseLogin from '../components/PleaseLogin'
+import { useCallback } from 'react'
+import { newOrderID } from '../api'
 
 
 const DonateTrustDetails = () => {
@@ -14,22 +17,57 @@ const DonateTrustDetails = () => {
   const navigate = useNavigate()
 
   const [amount, setAmount] = useState(0)
+  const [disable, setdisable] = useState(false)
 
   let NGOData, NGOID, UserID;
 
   NGOData = JSON.parse(localStorage.getItem("selectedNGO"))
   NGOID = NGOData._id;
   UserID = JSON.parse(localStorage.getItem("Profile"))
-  if(UserID)
-  UserID = UserID.result._id
+  if (UserID)
+    UserID = UserID.result._id
 
+  const Razorpay = useRazorpay()
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    const paymentID = (Math.random() + 1).toString(36).substring(7);
-    const data = { UserID, amount, paymentID, NGOID }
-    dispatch(donate(data, navigate))
+  const confirmPayment = () => {
+    if(amount==0){
+      alert("Please enter valid amount (1 - 99,999)")
+      return
+    }
+    setdisable(true)
   }
+  const handlePayment = useCallback(async () => {
+    const order = await newOrderID({ amount })
+    console.log(order)
+    const options = {
+      key: "rzp_test_mFMFgRDVP3SwXF",
+      amount: (amount * 100),
+      currency: "INR",
+      name: NGOData.name,
+      description: "Donation",
+      order_id: order.id,
+      handler: (res) => {
+        console.log(res);
+        let paymentID = res.razorpay_payment_id
+        const data = { UserID, amount, paymentID, NGOID }
+        dispatch(donate(data, navigate))
+      },
+      prefill: {
+        name: NGOData.name,
+        email: NGOData.email,
+        contact: NGOData.phone,
+      },
+      notes: {
+        address: "Razorpay Corporate Office",
+      },
+      theme: {
+        color: "#3399cc",
+      },
+    };
+
+    const rzpay = new Razorpay(options);
+    rzpay.open();
+  }, [Razorpay, amount]);
 
   useEffect(() => {
     if (amount < 0) {
@@ -39,6 +77,7 @@ const DonateTrustDetails = () => {
       setAmount(999999)
     }
   }, [amount])
+
   return <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} >
     {
       !!UserID ?
@@ -53,21 +92,26 @@ const DonateTrustDetails = () => {
             </h3>
             <p className=''>I wish to make a donation of <b className='text-success'>₹ {amount}</b> to <b className='text-success'>{NGOData.name}</b> </p>
             <div className="text-center">
-              <form action="" onSubmit={handleSubmit}>
+              <form onSubmit={(e) => { e.preventDefault() }}>
                 <div className="p-3 d-flex justify-content-center align-items-center">
                   <div className='shadow-sm d-flex justify-content-center align-items-center'>
                     <div className="h2 rupee float-start ps-3">₹</div>
-                    <input type="number" style={{ outline: "none", width: "160px" }} value={amount} onChange={(e) => setAmount(e.target.value)} className='border-0 p-2 h1 active' name="" id="" placeholder='' />
+                    <input type="number" style={{ outline: "none", width: "160px" }} disabled={disable} value={amount} onChange={(e) =>{ setAmount(e.target.value)}} className='border-0 p-2 h1 active' name="" id="" placeholder='' />
                   </div>
                 </div>
                 <div className="p-3 text-center">
-                  <button className='p-2 px-5 py-2 border-bottom border-3 shadow-sm bg-gradient text-white btn btn-lg rounded-0'>Donate</button>
+                  {
+                    !disable ?
+                      <button className='p-2 px-5 py-2 border-bottom border-3 shadow-sm bg-gradient text-white btn btn-lg rounded-0' onClick={confirmPayment}>Confirm</button>
+                      :
+                      <button className='p-2 px-5 py-2 border-bottom border-3 shadow-sm bg-success text-white btn btn-lg rounded-0' onClick={handlePayment}>Donate</button>
+                  }
                 </div>
               </form>
             </div>
           </div>
         </div> :
-        <PleaseLogin LoginText={"Please Login"} LoginSmallText={"You must  login to donate"}  />
+        <PleaseLogin LoginText={"Please Login"} LoginSmallText={"You must  login to donate"} />
     }
   </motion.div>
 }
