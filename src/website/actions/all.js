@@ -11,6 +11,9 @@ export const redirect = (login, navigate) => async (dispatch) => {
             case 'NGO':
                 navigate('ngo')
                 break
+            case 'REQ_CHANGE':
+                window.location.pathname= ('/ngo/aar')
+                break
         }
     } catch (error) {
         // alert("Invalid credentials!")

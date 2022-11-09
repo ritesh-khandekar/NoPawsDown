@@ -23,7 +23,7 @@ function Login() {
     }
     return <section className="py-4 bg-gradient vh-100 row d-flex justify-content-center align-items-center h-100" >
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}  className="col-md-6 col-lg-4 col-sm-10 rounded bg-white shadow p-3">
-            <p className="text-center h2 fw-bold my-3 mx-1 mx-md-4 text-primary">Login</p>
+            <p className="text-center h2 fw-bold my-3 mx-1 mx-md-4 text-primary">User Login</p>
 
             <form className="mx-1 mx-md-4" onSubmit={handleSubmit}>
 

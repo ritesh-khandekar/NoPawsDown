@@ -6,31 +6,35 @@ import { approveRequest, getAARs, rejectRequest } from '../actions/ngo'
 import Loader from '../components/Loader'
 import AARADialogue from './AARADialogue'
 import { motion } from "framer-motion"
+import { redirect } from '../actions/all'
+import { useNavigate } from 'react-router-dom'
 
 const AARA = ({ AARAInfo, setAARSInfo, setshowMainPage, setshowAdoptionDetails, setshowDonationDetails }) => {
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const [isProgress, setisProgress] = useState(false)
     const [tableData, setTableData] = useState([])
     const [viewDialogue, setViewDialogue] = useState(false)
 
-
     const approveHandler = () => {
         const Req = localStorage.getItem("REQ")
         setisProgress(true)
         dispatch(approveRequest(setisProgress, Req, setViewDialogue, setData))
+        dispatch(redirect('REQ_CHANGE', navigate))
     }
     const rejectHandler = () => {
         const Req = localStorage.getItem("REQ")
         setisProgress(true)
         dispatch(rejectRequest(setisProgress, Req, setViewDialogue, setData))
+        dispatch(redirect('REQ_CHANGE', navigate))
     }
     useEffect(() => {
         setTableData(AARAInfo.map(function (obj, number) {
             number += 1
             const { PetName, certificate, petGender, cropData, petType, FirstName, LastName, Apartment, City, PinCode, State, Phone } = obj.petId
             const [petOwner, petName, petOwnerPhone, petOwnerAddress, petImage, adopter, adoptorPhone, adopterAddress, status, _id] = [(FirstName + " " + LastName), PetName, Phone, ([Apartment, City, State].join(", ") + " - " + PinCode), cropData, obj.FirstName + " " + obj.LastName, obj.Phone, ([obj.Apartment, obj.City, obj.State].join(", ") + " - " + obj.PinCode), obj.status, obj._id]
-            return { petType, petGender,certificate, petOwner, petName, petOwnerPhone, petImage, petOwnerAddress, adopter, adoptorPhone, adopterAddress, status, number, approveHandler, rejectHandler, _id }
+            return { petType, petGender, certificate, petOwner, petName, petOwnerPhone, petImage, petOwnerAddress, adopter, adoptorPhone, adopterAddress, status, number, approveHandler, rejectHandler, _id }
         }))
     }, [])
 
@@ -47,7 +51,7 @@ const AARA = ({ AARAInfo, setAARSInfo, setshowMainPage, setshowAdoptionDetails, 
         }
         <nav aria-label="breadcrumb" className='py-3'>
             <ol class="breadcrumb border p-3 rounded">
-                <li class="breadcrumb-item text-primary" onClick={()=> {setshowMainPage(true); setshowAdoptionDetails(false)}}>Home </li>
+                <li class="breadcrumb-item text-primary" onClick={() => { setshowMainPage(true); setshowAdoptionDetails(false) }}>Home </li>
                 <li class="breadcrumb-item active" aria-current="page">Animal Adoption Requests</li>
             </ol>
         </nav>
@@ -82,7 +86,7 @@ const AARA = ({ AARAInfo, setAARSInfo, setshowMainPage, setshowAdoptionDetails, 
                             <td>{adopter}</td>
                             <td>{adopterAddress}</td>
                             <td><button className="btn btn-primary text-white" onClick={(e) => { localStorage.setItem("REQ", _id); setViewDialogue(true); }}>View</button></td>
-                            <td>{status}</td>
+                            <td><div className={"text-white rounded p-1 " +(status == "Adopted" ? "bg-success" : status == "Pending" ? "bg-info" : "bg-danger")}>{status}</div></td>
                         </tr>
                         )
                         : ""

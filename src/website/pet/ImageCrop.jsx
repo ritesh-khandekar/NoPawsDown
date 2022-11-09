@@ -18,7 +18,7 @@ const ImageCrop = ({ image, setCropData, setImgCrop }) => {
     return <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} style={{ left: 0, zIndex: 10, width:"100%" }} className="container position-fixed top-0 vw-100 w-100 h-100 bg-white p-2 text-center">
         <img className="float-left img-preview" />
         <Cropper
-            style={{ width: "100%" }}
+            style={{ width: "30%" }}
             zoomTo={0.5}
             initialAspectRatio={1}
             preview=".img-preview"

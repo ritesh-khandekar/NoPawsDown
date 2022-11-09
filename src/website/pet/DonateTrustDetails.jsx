@@ -30,7 +30,7 @@ const DonateTrustDetails = () => {
   const Razorpay = useRazorpay()
 
   const confirmPayment = () => {
-    if(amount==0){
+    if (amount == 0) {
       alert("Please enter valid amount (1 - 99,999)")
       return
     }
@@ -82,11 +82,15 @@ const DonateTrustDetails = () => {
     {
       !!UserID ?
         <div className="container">
-          <div className="header text-center p-5">
+          <div className="header text-center pt-3">
             <h3 className='text-secondary'>Change Animals life, today</h3>
-            <h5>We need your help to create a better life for Animals</h5>
+            <div className="d-flex flex-column justify-content-center align-items-center p-3">
+              <img src={NGOData.image} style={{ width: "200px" }} alt="" />
+              <h4 className='w-75 p-3 text-primary'>{NGOData.name}</h4>
+              <h5 className='w-75 px-2'>{NGOData.description}</h5>
+            </div>
           </div>
-          <div style={{ maxWidth: "600px" }} className="container-sm shadow p-3 py-4 text-center">
+          <div style={{ maxWidth: "600px" }} className="container-sm shadow p-3 text-center">
             <h3 className="text-primary">
               Make a donation
             </h3>
@@ -96,7 +100,7 @@ const DonateTrustDetails = () => {
                 <div className="p-3 d-flex justify-content-center align-items-center">
                   <div className='shadow-sm d-flex justify-content-center align-items-center'>
                     <div className="h2 rupee float-start ps-3">₹</div>
-                    <input type="number" style={{ outline: "none", width: "160px" }} disabled={disable} value={amount} onChange={(e) =>{ setAmount(e.target.value)}} className='border-0 p-2 h1 active' name="" id="" placeholder='' />
+                    <input type="number" style={{ outline: "none", width: "160px" }} disabled={disable} value={amount} onChange={(e) => { setAmount(e.target.value) }} className='border-0 p-2 h1 active' name="" id="" placeholder='' />
                   </div>
                 </div>
                 <div className="p-3 text-center">

@@ -10,9 +10,12 @@ import AARA from './AARA'
 import NGODonations from './NGODonations'
 import PleaseLogin from "../components/PleaseLogin"
 import { motion } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 
 const NGOMainPage = () => {
     const dispatch = useDispatch()
+    const navigate = useNavigate()
+
 
     const [NGO, setNGO] = useState()
     const [AARSInfo, setAARSInfo] = useState({ requests: [] })
@@ -29,6 +32,12 @@ const NGOMainPage = () => {
     const [isProgressAARS, setIsProgressAARS] = useState(true)
     const [NGOLogin, setNGOLogin] = useState(true)
 
+    useEffect(()=>{
+        if(window.location.pathname.includes('aar')){
+            setshowAdoptionDetails(true)
+            setshowMainPage(false)
+        }
+    },[])
     useEffect(() => {
         dispatch(getngo(setIsProgress, setNGO, setNGOLogin))
     }, [])

@@ -18,6 +18,7 @@ function Register() {
     const [accountNumber, setaccountNumber] = useState(0)
     const [IFSC, setIFSC] = useState('')
     const [UPI, setUPI] = useState('')
+    const [description, setdescription] = useState('')
     const [password, setPassword] = useState('')
     const [allowedLogin, setallowedLogin] = useState(false)
 
@@ -49,7 +50,7 @@ function Register() {
             return
         }
         const image = cropData;
-        dispatch(ngoRegister({ name, email, password, address, image, phone, image, accountNumber, IFSC, UPI }, navigate))
+        dispatch(ngoRegister({ name, email, password, address, image, phone, image, accountNumber, IFSC, UPI, description }, navigate))
 
     }
 
@@ -58,11 +59,12 @@ function Register() {
             imgCrop ?
                 <ImageCrop image={imgData} setCropData={setCropData} setImgCrop={setImgCrop} /> : ""
         }
-        <section className="p-4  bg-gradient vh-100 row d-flex justify-content-center align-items-center h-100" >
-            <div className="col-lg-4 col-md-6 col-sm-12 rounded text-center p-3">
-                <img src={cropData ? cropData : uploadPicImg} className="img-fluid" alt="Adopt Pet dog" />
+        <section className="vh-100 row d-flex justify-content-center align-items-center h-100" >
+            <div className="col-lg-4 col-md-6 col-sm-12 rounded text-center">
+                <img src={cropData ? cropData : uploadPicImg} className="img-fluid shadow" alt="Adopt Pet dog" />
             </div>
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="col-md-6 col-lg-8 col-sm-10 rounded bg-white shadow p-3">
+
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="col-md-6 col-lg-8 col-sm-10 rounded bg-white p-3">
                 <p className="text-center h2 fw-bold my-3 mx-1 mx-md-4 text-secondary">NGO Register</p>
                 <form className="mx-1 mx-md-4" autoComplete="off" autoSave="false" onSubmit={handleSubmit}>
                     <div className="d-flex">
@@ -94,6 +96,7 @@ function Register() {
                                 <div className="form-outline flex-fill mb-0">
                                     <textarea rows={3} className="form-control text-secondary border border-primary" onChange={(e) => setAddress(e.target.value)} placeholder="NGO Address" ></textarea>                                        </div>
                             </div>
+
                         </div>
                         <div className="mx-4" style={{ width: "40%" }}>
                             <div className="d-flex flex-row align-items-center mb-4">
@@ -131,6 +134,11 @@ function Register() {
                         <input type="password" id="form3Example4cd" name="user[password2]" className="form-control text-secondary border border-primary" onChange={(e)=> setPassword(e.target.value)} placeholder="Repeat Your Password" />
                     </div>
                 </div> */}
+                    <div className="d-flex flex-row flex-grow-1 align-items-center justify-content-center px-4 mb-4">
+                        <i className="fa mr-2 fa-sticky-note fa-lg me-3 fa-fw text-secondary"></i>
+                        <div className="form-outline flex-fill mb-0">
+                            <textarea rows={3} className="form-control text-secondary border border-primary" style={{ width: "92%"}}  onChange={(e) => setdescription(e.target.value)} placeholder="NGO Description" ></textarea>                                        </div>
+                    </div>
                     <div className="form-check d-flex my-2 justify-content-center">
                         <input className="form-check-input me-2 border border-primary" onChange={(e) => setallowedLogin(e.target.checked)} type="checkbox" value="" id="form2Example3c" />
                         <label className="form-check-label" htmlFor="form2Example3c">
