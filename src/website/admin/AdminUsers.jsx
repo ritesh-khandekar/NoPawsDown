@@ -23,7 +23,7 @@ const AdminUsers = () => {
         <div className="text-center py-4">
             <h2 className="text-primary">Users Database</h2>
         </div>
-        <table className="table shadow-sm text-center table-stripped table-bordered">
+        <table className="table table-light shadow-sm text-center table-stripped table-bordered">
             <thead className='table-secondary'>
                 <tr>
                     <th>Sr. No.</th>

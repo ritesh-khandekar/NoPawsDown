@@ -62,12 +62,12 @@ const NGOMainPage = () => {
         {
             NGOLogin && showMainPage ?
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} class="container d-flex justify-content-between flex-wrap mt-4">
-                    <div class="rounded-3 p-5 shadow text-center" style={{ minWidth: "40%" }}>
+                    <div class="rounded-3 p-5 shadow bg-white text-center" style={{ minWidth: "40%" }}>
                         <img src={adoptionrequest} alt="Donate Icon" width="140px" />
                         <h4>Animal Adoption Requests</h4>
                         <button class="btn btn-lg btn-primary text-white mt-3" onClick={() => { setshowAdoptionDetails(true); setshowDonationDetails(false); setshowMainPage(false); }}>View Requests</button>
                     </div>
-                    <div class="rounded-3 p-5 shadow text-center" style={{ minWidth: "40%" }}>
+                    <div class="rounded-3 p-5 shadow bg-white text-center" style={{ minWidth: "40%" }}>
                         <img src={donations_icon} alt="Donate Icon" width="140px" />
                         <h4>Donations Received</h4>
                         <button class="btn btn-lg btn-primary text-white mt-3" onClick={() => { setshowDonationDetails(true); setshowAdoptionDetails(false); setshowMainPage(false); }}>View Donations</button>

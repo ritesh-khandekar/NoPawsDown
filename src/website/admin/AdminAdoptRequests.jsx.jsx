@@ -21,9 +21,9 @@ const AdminAdoptRequests = () => {
             isProgress ? <Loader /> : ""
         }
         <div className="text-center py-4">
-            <h2 className="text-primary">Adopt Requests</h2>
+            <h2 className="">Adopt Requests</h2>
         </div>
-        <table className="table shadow-sm text-center table-stripped table-bordered">
+        <table className="table shadow-sm text-center table-light table-stripped table-bordered">
             <thead className='table-secondary'>
                 <tr>
                     <th>Sr. No.</th>

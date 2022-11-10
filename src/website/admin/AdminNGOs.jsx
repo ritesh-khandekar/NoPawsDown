@@ -22,10 +22,10 @@ const AdminNGOs = () => {
             isProgress ? <Loader /> : ""
         }
         <div className="text-center py-4">
-            <h2 className="text-primary">Registered NGOs</h2>
+            <h2 className="">Registered NGOs</h2>
         </div>
 
-        <table className="table shadow-sm text-center table-stripped table-responsive table-bordered">
+        <table className="table shadow-sm table-light text-center table-stripped table-responsive table-bordered">
             <thead className='table-secondary'>
                 <tr>
                     <th>Sr. No.</th>

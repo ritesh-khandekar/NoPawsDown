@@ -42,15 +42,15 @@ const AdoptPetDetails = () => {
   }
 
   return <>
-    <div className="h2 text-primary text-center p-4">Adopt a Pet</div>
+    <div className="h2 text-center p-4">Adopt a Pet</div>
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} >
       <>
         <div className="container">
           <div className="row d-flex g-3 justify-content-center align-items-center">
-            <div className="col-lg-5 col-md-6 col-sm-12 rounded">
-              <img src={cropData} className="img-fluid w-50 float-end" alt="Adopt Pet dog" />
-              <div className="card-title text-primary">
-                <h4>{PetName}</h4>
+            <div className="col-lg-5 col-md-6 col-sm-12 text-center rounded">
+              <img src={cropData} className="img-fluid w-50 rounded shadow float-end" alt="Adopt Pet dog" />
+              <div className="card-title">
+                <h2>{PetName}</h2>
               </div>
               <div className="card-text py-2">
                 Type: <b>{petType}</b> <br />
@@ -61,7 +61,7 @@ const AdoptPetDetails = () => {
                 {petMessage}
               </div>
             </div>
-            <div className="col-lg-5 col-md-6 col-sm-12 shadow-sm rounded mx-5 p-4">
+            <div className="col-lg-5 col-md-6 col-sm-12 bg-white shadow rounded-3 mx-5 p-4">
               <div className="text-center text-primary h4 py-2">
                 Your Details
               </div>

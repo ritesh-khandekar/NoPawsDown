@@ -64,7 +64,7 @@ const Adopt = () => {
                 (isProgress ?
                     <Loader /> :
                     <>
-                        <h2 className='text-center py-3 text-primary'>Pets Available for Adoption</h2>
+                        <h2 className='text-center py-3 text-black'>Pets Available for Adoption</h2>
                         <div className="container d-flex justify-content-evenly flex-wrap">
                             {
                                 AnimalInfo.petslist.map(({ petAge, petGender, PetName, petType, cropData, petWeight, petMessage, _id }, idx) =>

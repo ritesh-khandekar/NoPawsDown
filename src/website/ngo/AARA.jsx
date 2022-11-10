@@ -62,7 +62,7 @@ const AARA = ({ AARAInfo, setAARSInfo, setshowMainPage, setshowAdoptionDetails, 
                 <AARADialogue {...tableData.filter((obj) => obj._id == localStorage.getItem("REQ"))[0]} viewDialogue={setViewDialogue} /> :
                 ""
         }
-        <table className="table table-stripped table-bordered">
+        <table className="table shadow table-light table-stripped table-bordered">
             <thead>
                 <tr>
                     <th>Sr. No.</th>

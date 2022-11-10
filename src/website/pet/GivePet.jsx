@@ -88,8 +88,8 @@ const GivePet = () => {
     }
     return (
         <>
-            <div className="h2 text-primary text-center p-4">Give a pet for Adoption</div>
-            <div className="container">
+            <div className="h2 text-center p-4">Give a pet for Adoption</div>
+            <div className="container mb-5">
                 <div className="row">
                     <div className="col">
                         <ul id="progress-bar" className="myprogress">
@@ -117,12 +117,12 @@ const GivePet = () => {
                         </motion.div>
                     </> :
                     <>
-                        <div className="container">
+                        <div className="container mb-5">
                             <div className="row d-flex justify-content-center align-items-center">
                                 <div className="col-lg-5 col-md-6 col-sm-12 rounded text-center p-3">
-                                    <img src={cropData ? cropData: uploadPicImg} className="img-fluid" alt="Adopt Pet dog" />
+                                    <img src={cropData ? cropData: uploadPicImg} className="img-fluid rounded shadow" alt="Adopt Pet dog" />
                                 </div>
-                                <div className="col-lg-5 col-md-6 col-sm-12 rounded p-4">
+                                <div className="col-lg-5 col-md-6 col-sm-12 rounded bg-white shadow p-4">
                                     <div className="text-center text-primary h4 py-2">
                                         {!userDetails ? "Pet Details" : "Your Details"}
                                     </div>
@@ -198,11 +198,11 @@ const GivePet = () => {
                                                         </div>
                                                     </div>
                                                     <div className="form-row px-3">
-                                                        <label htmlFor="">Photos of your pet:</label>
+                                                        <label htmlFor="">Photos of your Pet:</label>
                                                         <input type="file" name="" accept='image/*' className='form-control col' onChange={onChangePic} />
                                                     </div>
                                                     <div className="form-row px-3">
-                                                        <label htmlFor="">Certificate of pet Adoption:</label>
+                                                        <label htmlFor="">Certificate of Pet Adoption:</label>
                                                         <input type="file" name="" accept='image/*' className='form-control col' onChange={onChangeCert} />
                                                     </div>
                                                     <div className="row p-4 py-3">

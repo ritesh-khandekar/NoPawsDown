@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { getNGOs } from "../actions/ngo";
 import Loader from "../components/Loader";
 import "../user/effects.css"
+import "./bg.css"
 import { motion } from "framer-motion"
 
 function StarRating(props) {

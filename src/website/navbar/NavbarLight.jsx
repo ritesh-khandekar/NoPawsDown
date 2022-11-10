@@ -13,7 +13,7 @@ import { motion } from "framer-motion"
 // import Popper from 'popper.js';
 
 const navData = [
-    { "link": "About Us", "url": "about" },
+    // { "link": "About Us", "url": "about" },
     // { "link": "NGO Login", "url": "ngo/login" },
     // { "link": "NGO Register", "url": "ngo/register" },
     // "Donate",

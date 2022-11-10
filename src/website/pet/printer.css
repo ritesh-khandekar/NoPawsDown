@@ -1,0 +1,15 @@
+@media print { 
+    body{
+        background: white !important;
+    }
+    .navbar {
+        display: none;
+        border-width:0 !important;
+    }
+    .navbar-toggle {
+        display:none;
+    }
+    .noprint{
+        display: none;
+    }
+}

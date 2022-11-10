@@ -23,7 +23,7 @@ const NGODonations = ({ Donations, totalDonations }) => {
             isProgress ? <Loader /> : ""
         }
 
-        <table className="table table-stripped table-bordered">
+        <table className="table table-light shadow table-stripped table-bordered">
             <thead>
                 <tr>
                     <th>Sr. No.</th>

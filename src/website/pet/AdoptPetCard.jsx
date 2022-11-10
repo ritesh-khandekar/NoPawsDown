@@ -13,7 +13,7 @@ const AdoptPetCard = ({ petId, petGender, petWeight, cropData, PetName, petAge, 
         navigate(petId)
     }
     return (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}  className='card mb-4 flex-grow-0' style={{ width: "17rem" }}>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}  className='card shadow mb-4 flex-grow-0' style={{ width: "17rem" }}>
             <img alt='' src={cropData} className="card-img-top" />
             <div className="card-body">
                 <div className="card-title text-primary">

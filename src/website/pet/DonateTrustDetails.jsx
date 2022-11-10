@@ -85,12 +85,12 @@ const DonateTrustDetails = () => {
           <div className="header text-center pt-3">
             <h3 className='text-secondary'>Change Animals life, today</h3>
             <div className="d-flex flex-column justify-content-center align-items-center p-3">
-              <img src={NGOData.image} style={{ width: "200px" }} alt="" />
-              <h4 className='w-75 p-3 text-primary'>{NGOData.name}</h4>
+              <img src={NGOData.image} className="rounded shadow-sm" style={{ width: "200px" }} alt="" />
+              <h2 className='w-75 p-3 text-primary text-uppercase'>{NGOData.name}</h2>
               <h5 className='w-75 px-2'>{NGOData.description}</h5>
             </div>
           </div>
-          <div style={{ maxWidth: "600px" }} className="container-sm shadow p-3 text-center">
+          <div style={{ maxWidth: "600px" }} className="container-sm bg-white mb-5 rounded shadow p-3 text-center">
             <h3 className="text-primary">
               Make a donation
             </h3>
@@ -106,9 +106,9 @@ const DonateTrustDetails = () => {
                 <div className="p-3 text-center">
                   {
                     !disable ?
-                      <button className='p-2 px-5 py-2 border-bottom border-3 shadow-sm bg-gradient text-white btn btn-lg rounded-0' onClick={confirmPayment}>Confirm</button>
+                      <button className='p-2 px-5 py-2 border-bottom border-3 shadow-sm bg-gradient text-white btn btn-lg rounded-3' onClick={confirmPayment}>Confirm</button>
                       :
-                      <button className='p-2 px-5 py-2 border-bottom border-3 shadow-sm bg-success text-white btn btn-lg rounded-0' onClick={handlePayment}>Donate</button>
+                      <button className='p-2 px-5 py-2 border-bottom border-3 shadow-sm bg-success text-white btn btn-lg rounded-3' onClick={handlePayment}>Donate</button>
                   }
                 </div>
               </form>

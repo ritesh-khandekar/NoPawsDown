@@ -59,9 +59,9 @@ function Register() {
             imgCrop ?
                 <ImageCrop image={imgData} setCropData={setCropData} setImgCrop={setImgCrop} /> : ""
         }
-        <section className="vh-100 row d-flex justify-content-center align-items-center h-100" >
+        <section className="vh-100 mt-2 row d-flex justify-content-center align-items-center h-100" >
             <div className="col-lg-4 col-md-6 col-sm-12 rounded text-center">
-                <img src={cropData ? cropData : uploadPicImg} className="img-fluid shadow" alt="Adopt Pet dog" />
+                <img src={cropData ? cropData : uploadPicImg} className="img-fluid rounded shadow" alt="Adopt Pet dog" />
             </div>
 
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="col-md-6 col-lg-8 col-sm-10 rounded bg-white p-3">
